@@ -1,0 +1,659 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Exam 1: Boat Rentals</title>
+<style>
+/*General settings for whole site*/
+	body{
+		font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		background-color: #F0F0F0;
+		font: normal;
+		font-weight: 200;
+	}
+	h3{
+		font-size: 25px;
+		text-align: center;
+		letter-spacing: 1.25px;
+		color: #232323;
+	}
+	
+/*General settings for content div where all sections go*/
+	.content{
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #FFFFFF;
+		margin-bottom: 25px;
+	}
+	
+/* Header Section*/
+	header{
+		width: 90%;
+		height: 60px;
+		background-color: #816E56;
+		position: fixed;
+		top: 0px;
+		z-index: 100;
+	}
+	
+/* Title settings*/
+	.title{
+		float: left;
+		text-align: left;
+		letter-spacing: 2px;
+		width: 25%;
+		padding-left: 150px;
+		color: #fff;
+		position: fixed;
+	}
+	
+/*Image settings to right of title */
+	.logo{
+		width: 25%;
+		float: left;
+		padding-left: 25px;
+		padding-top: 10px;
+		position: fixed;
+	}
+	.logo img{
+		border-radius: 50%;
+	}
+	
+/* Nav bar settings in top left of header */
+	nav {
+		right: 90px;
+		float: right;
+		width: 50%;
+		text-align: right;
+		margin-right: 0px;
+		margin-top: 5px;
+		position: fixed;
+		z-index: 100;
+	}
+	nav ul {
+		list-style: none;
+		float: right;
+	}
+	nav ul li {
+		float: left;
+		font-size: 14px;
+		text-align: left;
+		margin-right: 25px;
+		letter-spacing: 2px;
+		font-weight: bold;
+		transition: all 0.3s linear;
+	}
+	ul li a {
+		color: #fff;
+		text-decoration: none;
+	}
+	ul li:hover a {
+		color: #2C9AB7;
+	}
+
+/* Anchor settings specifically for accurate section hrefrences */
+	.anchor{
+		top: -75px;
+		position: absolute;
+	}
+	
+/* About section settings */
+	#about{
+		position: relative;
+		width: 70%;
+		margin-top: 75px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 10px;
+		color: #232323;
+	}	
+	#about p{
+		margin-left: 50px;
+		margin-right: 50px;
+		line-height: 25px;
+		letter-spacing: 1px;
+		text-align: justify;
+		font-weight: lighter;
+	}
+	#about ul{
+		list-style: none;
+		font-weight: 600;
+		line-height: 25px;
+		letter-spacing: .5px;
+		padding-left: 8px;
+		text-align: center;
+	}
+	#about h4{
+		text-align: center;
+		font-size: 17px;
+		letter-spacing: 1.25px;
+		padding-bottom: 5px;
+		border-bottom: solid 1px #232323;
+	}
+	#about a{
+		color: #232323;
+		text-decoration: none;
+		font-style: italic;
+		letter-spacing: 1px;
+	}
+	#about a:hover{
+		color: #2C9AB7;
+	}
+
+/* Embedded Youtube Video settings */
+	iframe{
+		width: 560px;
+		height: 315px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		align-content: center;
+		border: solid 25px #9E9283;
+		background-color: #f0f0f0;;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+/* Price section settings */
+	#price{
+		position: relative;
+		padding-bottom: 75px;
+	}
+	
+/* Settings specifically for the content slider in price section */
+	#slider{
+		position: relative;
+		width: 50%;
+		height: 400px;
+		margin: auto;
+		perspective: 1500px;
+		transform-style: preserve-3d;
+	}
+	.slideInfo{
+		color: #fff;
+		line-height: 25px;
+		text-align: left;
+		padding-left: 75px;
+		padding-right: 75px;
+		font-size: 18px;
+		letter-spacing: 1px;
+	}
+	.slideInfo ul{
+		list-style: none;
+	}
+	#slider label{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		right: 0;
+		color: #FFFFFF;
+		border-radius: 5px;
+		display: inline;
+		transition: transform 400ms ease;
+		background-color: #9E9283;
+	}
+	#slider h2{
+		font-size: 22px;
+		text-align: center;
+		letter-spacing: 2px;
+		border-bottom: 1.5px solid white;
+		padding-top: 25px;
+		padding-bottom: 5px;
+	}
+
+/* Radio input settings for slider */
+	input[type=radio]{
+		position: relative;
+		top: 110%;
+		left: 52%;
+		width: 15px;
+		height: 15px;
+		opacity: .4;
+		transform: translateX(-83px);
+	}
+	input[type=radio]:nth-child(6){
+		margin-right: 0px;
+	}
+	input[type=radio]:checked{
+		opacity: .8;
+		accent-color: #2C9AB7;
+	}
+	
+/* Active slide settings */
+	#kayak:checked ~ #kayakInfo,
+	#canoe:checked ~ #canoeInfo,
+	#rowBoat:checked ~ #rowBoatInfo,
+	#paddleBoard:checked ~ #paddleBoardInfo{
+		box-shadow: 0 13px 26px rgba(0,0,0,.3), 0 12px 6px rgba(0,0,0,.2);
+		transform: translate3d(0%, 0, 0px);
+	}
+	
+/* Next slide display settings (to right) */
+	#kayak:checked ~ #canoeInfo,
+	#canoe:checked ~ #rowBoatInfo,
+	#rowBoat:checked ~ #paddleBoardInfo,
+	#paddleBoard:checked ~ #sailBoatInfo,
+	#sailBoat:checked ~ #kayakInfo{
+		box-shadow: 0 6px 10px rgba(0,0,0,.3), 0 2px 2px rgba(0,0,0,.2);
+		transform: translate3d(20%, 0, -100px);
+		opacity: .75;
+	}
+	
+/* Next, next slide display settings (twice to right) */
+	#kayak:checked ~ #rowBoatInfo,
+	#canoe:checked ~ #paddleBoardInfo,
+	#rowBoat:checked ~ #sailBoatInfo,
+	#paddleBoard:checked ~ #kayakInfo,
+	#sailBoat:checked ~ #canoeInfo{
+		box-shadow: 0 1px 4px rgba(0,0,0,.4);
+		transform: translate3d(40%, 0, -250px);
+		opacity: .25;
+	}
+	
+/* Previous, previous slide display settings (twice to left) */
+	#kayak:checked ~ #paddleBoardInfo,
+	#canoe:checked ~ #sailBoatInfo,
+	#rowBoat:checked ~ #kayakInfo,
+	#paddleBoard:checked ~ #canoeInfo,
+	#sailBoat:checked ~ #rowBoatInfo{
+		box-shadow: 0 1px 4px rgba(0,0,0,.4);
+		transform: translate3d(-40%, 0, -250px);
+		opacity: .25;
+	}
+	
+/* Previous slide display settings (to left) */
+	#kayak:checked ~ #sailBoatInfo,
+	#canoe:checked ~ #kayakInfo,
+	#rowBoat:checked ~ #canoeInfo,
+	#paddleBoard:checked ~ #rowBoatInfo,
+	#sailBoat:checked ~ #paddleBoardInfo{
+		box-shadow: 0 6px 12px rgba(0,0,0,.3), 0 2px 2px rgba(0,0,0,.2);
+		transform: translate3d(-20%, 0, -100px);
+		opacity: .75;
+	}
+	
+/* Plan day section settings (calculator section) */
+	#planDay{
+		position: relative;
+		width: 65%;
+		margin: auto;
+		align-content: center;
+		height: auto;
+	}
+	#planDay table{
+		width: 100%;
+		background-color: #816E56;
+		border-radius: 8px;
+		padding: 10px;
+		line-height: 30px;
+		color: #FFFFFF;
+		text-align: left;
+	}	
+	#planDay select{
+		background-color: #9E9283;
+		border-color: #fff;
+		border-radius: 5px;
+		color: #FFFFFF;
+		text-align: center;
+	}	
+	input[type=button]{
+		background-color: #9E9283;
+		color: #fff;
+		border-color: #FFFFFF;
+		border-radius: 5px;
+		border-style: solid;
+		border-width: thin;
+		padding-left: 15px;
+		padding-right: 15px;
+		letter-spacing: .75px;
+	}
+	
+/* Input tag settings for buttons and text box below table */
+	.bottomButtons{
+		padding-top: 25px;
+		display: flex;
+		justify-content: space-between;
+	}	
+	.bottomButtons input[type=text]{
+		color: #232323;
+		font-size: 30px;
+		text-align: right;
+		border: none;
+		font-variant-numeric: tabular-nums;
+		font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+		letter-spacing: 1px;
+		font-weight: 600;
+	}
+
+/* Contact section settings */
+	#contact{
+		position: relative;
+		padding-bottom: 25px;
+		padding-top: 25px;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#contact h4{
+		text-align: center;
+		letter-spacing: 1px;
+		border-bottom: solid 1.5px #232323;
+		padding-bottom: 5px;
+	}
+	.contactInfo{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		text-align: center;
+		letter-spacing: .5px;
+		line-height: 20px;
+		font-weight: 500;
+	}
+</style>
+	
+<script>
+// Function used to add 2 rows to the calculator, allowing user to enter another boat option
+	function addBoat(){
+		
+		//Create/populate 2 arrays to hold options for both select elements
+		const boats = ["Boat", "Kayak", "One Person Kayak", "Two Person Kayak", "Canoe", "Row Boat", "Paddle Board", "Sailboat", "Small Sailboat(4 People)", "Large Sailboat(10+ People)"];
+		const hours = ["Number of Hours", "1", "2", "3", "4", "5", "6", "Day Rental (~12hrs)"];
+		
+		//Create the two new select elements to go into the table
+		const newBoats = document.createElement("select");
+		const newHours = document.createElement("select");
+		
+		//Use a for loop to step through the boat array & use the values to set the options in the boat select element
+		for(var i = 0; i < boats.length; i++){
+			//If the index is equal to the position of an option group name, we are going to set that value as an optgroup
+			if(i == 1 || i == 7){
+				//Create the new optgroup element
+				const newOptGrp = document.createElement("optgroup");
+				
+				//Set the optgroup's label attribute to the appropriate value
+				newOptGrp.setAttribute("label", boats[i]);
+				
+				//Use short for loop to set the Option group's sub-options
+				for(var v = 1; v <= 2; v++){
+					//Create the new option element & set the appropriate name through the boats array
+					const newOption = document.createElement("option");
+					const optText = document.createTextNode(boats[i+v]);
+					
+					//Attach the name to the option element
+					newOption.appendChild(optText);
+				
+					//Set the value attribute of the option to its corrisponding index value in the array
+					newOption.setAttribute('value', i+v);
+					
+					//Attach the new sub-option element to the option group element
+					newOptGrp.appendChild(newOption);
+				}
+				
+				//Once the option group element is complete, attach it to the new boat select element
+				newBoats.appendChild(newOptGrp);
+				
+				//increment the index by 2 to account for the sub-options (there are two sub boats in each optgroup)
+				i+=2;;
+			}else{
+				//If it is not an optgroup name or suboption name value, create a new option element & set the appropriate name
+				const newOption = document.createElement("option");
+				const optText = document.createTextNode(boats[i]);
+				
+				//Attach the name of the boat to the option element
+				newOption.appendChild(optText);
+			
+				//Set the value attribute of the option to the corresponding index value in the array
+				newOption.setAttribute('value', i);
+				
+				//Attach the new option element to the select element
+				newBoats.appendChild(newOption);
+			}
+		}
+		
+		//Create a new delete button element & set its attributes
+		const newDelete = document.createElement("input");
+		newDelete.setAttribute("type", "button");
+		newDelete.setAttribute("value", "Delete");
+		newDelete.setAttribute("onclick", "deleteBoat(this)");
+		
+		//Use a for loop to step through the hours array & set the options in the new hours select element
+		for(var i = 0; i < hours.length; i++){
+			const newOption = document.createElement("option");
+			const optText = document.createTextNode(hours[i]);
+			
+			newOption.appendChild(optText);
+			
+			newOption.setAttribute('value', i);
+			
+			newHours.appendChild(newOption);
+		}
+		
+		//Get the table data from the document & create a table object
+		var table = document.getElementById("priceTable");
+		
+		//Insert a new row at the end by using index -1
+		var row = table.insertRow(-1);
+		
+		//Create the 3 cells (left to right) to hold the boat information/delete button
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		
+		//Populate these 3 cells with the appropriate text/elements
+		cell1.innerHTML = "Choose Boat:";
+		cell2.appendChild(newBoats);
+		cell3.appendChild(newDelete);
+		
+		//Insert a 2nd new row at the end using index -1
+		var row2 = table.insertRow(-1);
+		
+		//Create 2 new cells to hold the hour information
+		var cell4 = row2.insertCell(0);
+		var cell5 = row2.insertCell(1);
+		
+		//Populate the cells with appropriate text/elements
+		cell4.innerHTML = "Choose how many hours:";
+		cell5.appendChild(newHours);
+	}
+
+//Function used to calculate the cost of the table
+	function cost(){
+		//Create & populate array with the corresponding cost per hour for each boat in the select element. Use 0's for any optGroups or default options
+		const price = [0, 0, 10.00, 15.00, 12.50, 12.50, 8.00, 0,  25.00, 50.00];
+		
+		//Get table data from document & create a table object
+		var table = document.getElementById("priceTable");
+		var grandTotal = 0;
+		
+		//Use for loop to step through the appropriate cells in the table to collect & calculate values
+		for(var i = 0; i < table.rows.length; i+=2){
+			//Use row/cell indexes with the childnode index to get the value of the selection from the select elements
+			var boatValue = table.rows[i].cells[1].childNodes[0].value;
+			var hourValue = table.rows[i+1].cells[1].childNodes[0].value;
+			//Use the boat value to get the correct pricing * multiply it by the hour value. Then add to grand total
+			grandTotal = grandTotal + hourValue * price[boatValue];
+		}
+		
+		//Set the total on the document to the grandTotal variable set to 2 decimal places
+		document.getElementById("total").value = "Total: $" + grandTotal.toFixed(2);
+	}
+
+//Function used to delete boats from the table
+	function deleteBoat(delButton){
+		//Get table data from document & create table object
+		var table = document.getElementById("priceTable");
+		//Get the row data from the delete button through parent nodes & create row object
+		var row = delButton.parentNode.parentNode;
+		//Set row index for the delete button's row by using the row object & rowindex method
+		var rIndex = row.rowIndex;
+		
+		//Use short forloop to delete the two rows. Since delete button is in the top of the 2 rows, its original row index can be used to delete both rows
+		for(var i=0; i<2; i++){
+			table.deleteRow(rIndex);
+		}
+		
+		//Call the cost function to update the total on screen for the user
+		cost();
+	}
+</script>
+</head>
+
+<body>
+<div class="content">
+<header>
+	<div class="logo"><img src="Lake image vertical.jpeg" alt=""></div>
+	<h3 class="title">Alex's&nbsp;Boat&nbsp;Rental</h3>
+	<nav>
+		<ul>
+			<li><a href="#aboutAnchor">About</a></li>
+			<li><a href="#priceAnchor">Prices</a></li>
+			<li><a href="#planDayAnchor">Plan Your Day</a></li>
+			<li><a href="#contactAnchor">Contact</a></li>
+		</ul>
+	</nav>
+</header>
+	
+<section class="about" id="about">
+	<h3><a class="anchor" id="aboutAnchor"></a>About Alex's Boat Rental</h3>
+	<p>Alex Doran has been supplying rental boats of all shapes and sizes since 2020. Fake Lake offers the perfect location to spend the day on the water with family and friends in your choice of craft! Come down today and make some memories!</p>
+	<p>Alex's Boat Rentals is also the perfect spot to bring and launch personal crafts! Our docks include a 30ft long cement launching ramp that accomadates trailers of all sizes. Before you stop in, make sure all boating permits are in order and ready to present. If a permit is required, one can be purchased in person or visit <a href="https://www.fishandboat.com/Boat/RegisterTitle/Pages/default.aspx" target="_blank">Pennsylvania's Fish and Boat Commission website</a> to register!</p>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/xu_opk52I70?start=5&autoplay=1&mute=1&modestbranding=1&end=160&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<h4>Hours</h4>
+	<ul>
+		<li>Monday: 12:00pm to Sunset</li>
+		<li>Tuesday: 12:00pm to Sunset</li>
+		<li>Wednesday: 12:00pm to Sunset</li>
+		<li>Thursday: 12:00pm to Sunset</li>
+		<li>Friday: 12:00pm to Sunset</li>
+		<li>Saturday: 9:00am to Sunset</li>
+		<li>Sunday: 9:00am to Sunset</li>
+	</ul>
+	<p style="padding-left: 25px">* Hours subject to change on holidays.</p>
+</section>
+	
+<section class="price" id="price">
+	<h3 style="text-align: center"><a class="anchor" id="priceAnchor"></a>Boats &amp; Prices</h3>
+	<div id="slider">
+		<input type="radio" name="slider" id="kayak" checked>
+		<input type="radio" name="slider" id="canoe">
+		<input type="radio" name="slider" id="rowBoat">
+		<input type="radio" name="slider" id="paddleBoard">
+		<input type="radio" name="slider" id="sailBoat">
+			
+		<label for="kayak" id="kayakInfo">
+			<h2>Kayak Info</h2>
+			<div class="slideInfo">
+				<p>Difficulty level: Beginner<br>Anyone can easily enjoy a day on the lake with little to no previous experience!<br>Kayak Pricing:</p>
+				<ul>
+					<li>One (1) Person - $10.00 per hour</li>
+					<li>Two (2) Person - $15.00 per hour</li>
+				</ul>
+			</div>
+		</label>
+		<label for="canoe" id="canoeInfo">
+			<h2>Canoe Info</h2>
+			<div class="slideInfo">
+				<p>Difficuluty level: Intermediate<br>There is a bit of a learning curve, but with a little practice, anyone can become a pro!<br>Canoe Pricing:</p>
+				<ul>
+					<li>Standard - $12.50 per hour</li>
+				</ul>
+			</div>
+		</label>
+		<label for="rowBoat" id="rowBoatInfo">
+			<h2>Row Boat Info</h2>
+			<div class="slideInfo">
+				<p>Difficulty level: Beginner<br>Anyone can easily enjoy a day on the lake with little to no previous experience!<br>Row Boat Pricing:</p>
+				<ul>
+					<li>Standard - $12.50 per hour</li>
+				</ul>
+			</div>
+		</label>
+		<label for="paddleBoard" id="paddleBoardInfo">
+			<h2>Paddle Board Info</h2>
+			<div class="slideInfo">
+				<p>Difficulty level: Intermediate<br>There is a bit of a learning curve, but with a little practice, anyone can become a pro!<br>Paddle Board Pricing:</p>
+				<ul>
+					<li>Standard - $8.00 per hour</li>
+				</ul>
+			</div>
+		</label>
+		<label for="sailBoat" id="sailBoatInfo">
+			<h2>Sailboat Info</h2>
+			<div class="slideInfo">
+				<p>Difficulty level: Expert<br>This boat requires expierence and training to operate. Only those that have previously rented with us are allowed to operate.<br>Sailboat Pricing:</p>
+				<ul>
+					<li>Small Sailboat (4) - $25.00 per hour</li>
+					<li>Large Sailboat (8) - $50.00 per hour</li>
+				</ul>
+			</div>
+		</label>
+		</div>
+</section>
+	
+<section class="planDay" id="planDay">
+	<a class="anchor" id="planDayAnchor"></a>
+	<h3>Plan Your Day</h3>
+	<form id="priceCalculator">
+		<table id="priceTable">
+			<tbody>
+				<tr>
+					<td>Choose Boat:</td>
+					<td><select>
+							<option value="0">Boat</option>
+							<optgroup value = "1" label="Kayak">
+								<option value="2">One Person Kayak</option>
+								<option value="3">Two Person Kayak</option>
+							</optgroup>
+								<option value="4">Canoe</option>
+								<option value="5">Row Boat</option>
+								<option value="6">Paddle Board</option>
+							<optgroup value="7" label="Sailboat">
+								<option value="8">Small Sailboat(4 People)</option>
+								<option value="9">Large Sailboat(10+ People)</option>
+						</optgroup>
+						</select>
+					</td>
+					<td><input type="button" value="Delete" id="delButton" onClick="deleteBoat(this)"></td>
+				</tr>
+				<tr>
+					<td>Choose how many hours:</td>
+					<td><select>
+							<option value="0">Number of Hours</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">Day Rental (~12hrs)</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="bottomButtons">
+			<input type="button" value="Add Boat" onclick="addBoat()">
+			<input type="button" value="Calculate Total" onclick="cost()">
+			<input type="text" id="total">
+		</div>
+	</form>
+</section>
+	
+<section class="contact" id="contact">
+	<h4>Contact Information</h4><a class="anchor" id="contactAnchor"></a>
+	<div class="contactInfo">
+		<p>Alex Doran<br>Phone: (724) 404-2918<br>Email: alexdoran@fakemail.net</p>
+		<p>Address<br>123 Fake Address St<br>Some Area, PA 15635</p>
+	</div>
+</section>
+		
+</div>
+</body>
+</html>

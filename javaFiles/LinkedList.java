@@ -1,17 +1,17 @@
 //Class to create & manage a simple linked list
 public class LinkedList<T>{
     //Class to create individual nodes
-    public class Node<T>{
+    public class Node<E>{
     
-        T value;
+        E value;
         Node next;
     
-        public Node(T element, Node n){
+        public Node(E element, Node n){
             value = element;
             next = n;
         }
     
-        public Node(T element){
+        public Node(E element){
             this(element, null);
         }
     }
