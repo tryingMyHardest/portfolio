@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ace Tests</title>
+        <style>
+            .editor { 
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 500px;}
+        </style>
+    </head>
+    <body>
+
+        <button onclick="createEditor()">Test Button</button>
+        <button onclick="deleteEditor()">Delete Button</button>
+        <div id="codeArea"><div id="editor" class="editor" style="display:none;">Test Code</div></div>
+        Ahh
+        
+
+        <script src="/cms/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+    var editor;
+    function createEditor() {
+            var root = document.getElementById('editor');
+            root.parentNode.insertBefore(root.cloneNode(true), root);
+            root.setAttribute("style", "");
+            editor = ace.edit(root);
+            editor.setTheme("ace/theme/monokai");
+            editor.session.setMode("ace/mode/javascript");
+     
+            
+        
+    }
+    function deleteEditor(){
+            editor.destroy();
+            var el = editor.container;
+            el.parentNode.removeChild(el);
+            editor = null;
+    }
+    createEditor();
+        </script>
+    </body>
+</html>

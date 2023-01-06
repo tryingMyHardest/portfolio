@@ -1,0 +1,30 @@
+<script src="https://ajaxorg.github.io/ace-builds/src/ace.js"></script>
+<p><button onclick="toggleEditor()">Toggle editor</button></p>
+<div class="tab">
+    <button id="defaultOpen" class="codeTab" onclick="changeTab(event, 'editor3')">HTML</button>
+    <button class="codeTab" onclick="changeTab(event, 'editor1')">JS</button>
+    <button class="codeTab" onclick="changeTab(event, 'editor2')">CSS</button>
+    <span class="closeProject" onclick="this.parentElement.parentElement.style.display='none'">&#8598</span>
+</div>
+<div id="editor" style="height: 100px;">function foo(items) {
+    var x = "All this is syntax gggggghighlighted";
+    return x;
+}</div>
+<script>
+    var editor
+    function toggleEditor() {
+        if (!editor) {
+            var root = document.getElementById('editor')
+            root.parentNode.insertBefore(root.cloneNode(true), root)
+            editor = ace.edit(root);
+            editor.setTheme("ace/theme/monokai");
+            editor.session.setMode("ace/mode/javascript");
+        } else {
+            editor.destroy();
+            var el = editor.container;
+            el.parentNode.removeChild(el);
+            editor = null;
+        }
+    }
+    toggleEditor()
+</script>
