@@ -15,33 +15,32 @@
     </head>
     <body>
 
-        <button onclick="createEditor()">Test Button</button>
+        <button onclick="createEditor('editor1')">Test Button</button>
         <button onclick="deleteEditor()">Delete Button</button>
-        <div id="codeArea"><div id="editor" class="editor" style="display:none;">Test Code</div></div>
+        <div id="codeArea"><div id="editor1" class="editor" style="display:none;">Test Code</div></div>
         Ahh
         
 
         <script src="/cms/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
         <script>
-    var editor;
-    function createEditor() {
-            var root = document.getElementById('editor');
-            root.parentNode.insertBefore(root.cloneNode(true), root);
-            root.setAttribute("style", "");
-            editor = ace.edit(root);
-            editor.setTheme("ace/theme/monokai");
-            editor.session.setMode("ace/mode/javascript");
-     
-            
-        
-    }
-    function deleteEditor(){
-            editor.destroy();
-            var el = editor.container;
-            el.parentNode.removeChild(el);
-            editor = null;
-    }
-    createEditor();
+            var editor;
+            function createEditor(editorNum) {
+                var root = document.getElementById(editorNum);
+                root.parentNode.insertBefore(root.cloneNode(true), root);
+                root.setAttribute("style", "");
+                editor = ace.edit(root);
+                editor.setTheme("ace/theme/monokai");
+                editor.session.setMode("ace/mode/javascript");
+            }
+            function deleteEditor(){
+                editor.destroy();
+                var el = editor.container;
+                el.parentNode.removeChild(el);
+                editor = null;
+            }
+            if(editor == null){
+                createEditor();  
+                }
         </script>
     </body>
 </html>
