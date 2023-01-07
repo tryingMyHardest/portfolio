@@ -39,7 +39,7 @@ function addBoat(){
             newBoats.appendChild(newOptGrp);
             
             //increment the index by 2 to account for the sub-options (there are two sub boats in each optgroup)
-            i+=2;;
+            i+=2;
         }else{
             //If it is not an optgroup name or suboption name value, create a new option element & set the appropriate name
             const newOption = document.createElement("option");
@@ -63,7 +63,7 @@ function addBoat(){
     newDelete.setAttribute("onclick", "deleteBoat(this)");
     
     //Use a for loop to step through the hours array & set the options in the new hours select element
-    for(var i = 0; i < hours.length; i++){
+    for(i = 0; i < hours.length; i++){
         const newOption = document.createElement("option");
         const optText = document.createTextNode(hours[i]);
         
