@@ -155,9 +155,36 @@
         });*/
     
     }
+
+    var editor;
+
+    const createEditor = (editorNum) => {
+        var root = document.getElementById(editorNum);
+            root.parentNode.insertBefore(root.cloneNode(true), root);
+            root.setAttribute("style", "");
+
+            let textArray = editorNum.split(".");
+
+            editor = ace.edit(root);
+            editor.setTheme("ace/theme/monokai");
+            
+            switch(textArray[1]){
+                case "html": editor.session.setMode("ace/mode/html");
+                    break;
+                case "css": editor.session.setMode("ace/mode/css");
+                    break;
+                case "js": editor.session.setMode("ace/mode/javascript");
+                    break;
+                case "java": editor.session.setMode("ace/mode/java");
+            }
+    }
+
+    const deleteEditor = () => {
+            editor.destroy();
+            var el = editor.container;
+            el.parentNode.removeChild(el);
+            editor = null;
+    }
         </script>
     </body>
-    <!--<script src="/apiTest.js" type="text/javascript/module" charset="utf-8"></script>-->
-    
-
 </html>
