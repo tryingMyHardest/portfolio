@@ -32,9 +32,9 @@
     
     const handleCompile = () => {
 
-        const editorCode = document.getElementById("editor1").innerText;
+        const editorCode = document.getElementById("clone").innerText;
 
-        console.log(editorCode);
+        console.log("Code: ", editorCode);
 
         const test = btoa(editorCode);
 
@@ -55,7 +55,7 @@
             'X-RapidAPI-Key': '0f362b5a43msh406f5870c7e287ep11dc52jsnc6ef63ed4990',
             'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com',
         },
-        body: '{"language_id":71,"source_code":"cHJpbnQoImhlbGxvIHdvcmxkIik="}',
+        body: '{"language_id":71,"source_code":"' + test + '"}',
         };
 
         fetch(API_URL, options).then(response => response.json())
@@ -113,6 +113,8 @@
     
             let msg = atob(results);
 
+            console.log(msg);
+
            /* if(statusId === 3){
                 msg = atob(results);
             }else{
@@ -162,6 +164,7 @@
         var root = document.getElementById(editorNum);
             root.parentNode.insertBefore(root.cloneNode(true), root);
             root.setAttribute("style", "");
+            root.setAttribute("id", "clone");
 
             let textArray = editorNum.split(".");
 
