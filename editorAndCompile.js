@@ -1,21 +1,21 @@
 
-var language_id = 71;
+var language_id = 62;
 var start;
 var end;
 
-var editor; 
+var editor;
 
 const createEditor = (editorNum) => {
-    let clone = document.getElementById(editorNum).cloneNode(true);
-        document.getElementById("codeArea").appendChild(clone);
-        clone.setAttribute('id', 'editor');
-        editor = ace.edit('editor');
-        editor.setTheme("ace/theme/dawn");
-        editor.session.setMode("ace/mode/c_cpp");
-        editor.resize();
-        clone.setAttribute("style","");
 
-        document.getElementById("compileButton").removeAttribute('disabled');
+    var root = document.getElementById(editorNum);
+    root.parentNode.insertBefore(root.cloneNode(true), root);
+    root.setAttribute("style", "");
+
+    editor = ace.edit(root);
+    editor.setTheme("ace/theme/dawn");
+    editor.session.setMode("ace/mode/c_cpp");
+
+    document.getElementById("compileButton").removeAttribute('disabled');
                 
 }
             
@@ -28,6 +28,59 @@ const deleteEditor = () => {
     document.getElementById("output").innerText = "";
     let button = document.getElementById("compileButton");
     button.setAttribute("disabled", "true");
+}
+
+const openFile = () => {
+    let obj, file;
+
+    /*obj = new ActiveXObject("Scripting.FileSystemObject");
+    file = obj.GetFile("javaFiles/Stack.java");
+
+    let str = file.toString();*/
+
+    editor.setValue("test");
+}
+
+const changeTab = (button, editorNum) => {
+    // Declare all variables
+    let codeTab = document.getElementsByClassName("codeTab");
+
+    // Get all elements with class="codeTab" & remove the class "active"
+    for (let i = 0; i < codeTab.length; i++) {
+        codeTab[i].removeAttribute("active");
+    }
+
+    //Set clicked tab's class to "active"
+    button.setAttribute("active", "true");
+
+    //Check if editor is populated already. If yes, delete it & set object to null
+    if(editor != null){
+        deleteEditor();
+    }
+
+    //Create editor for tab with proper code file
+    createEditor(editorNum);
+}
+
+const changeProject = (proj) => {
+    let codeContent;
+
+    codeContent = document.getElementsByClassName("codeContent");
+    for(let i = 0; i < codeContent.length; i++){
+        codeContent[i].style.display = "none";
+    }
+
+    proj.childeNode.childeNode.style.display = "block";
+    
+    document.getElementById("defaultOpen").click();
+}
+
+function closeElement(evt){
+    if(editor != null){
+        deleteEditor();
+    }
+
+    evt.currentTarget.parentElement.parentElement.style.display = "none";
 }
 
 const changeLang = (dropDown) => {
@@ -55,11 +108,9 @@ const changeLang = (dropDown) => {
     preSet(language_id);
 }
     
-const handleCompile = () => {
+const handleCompile = (button) => {
 
     start = Date.now();
-
-    let button = document.getElementById("compileButton");
 
     button.innerHTML = "<div class='dot-flashing'></div>";
     button.setAttribute('disabled', 'true');

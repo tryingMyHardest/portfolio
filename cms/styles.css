@@ -2,6 +2,11 @@ body{
     background-color: gray;
 }
 
+details{
+  display: flex;
+  flex-direction: column;
+}
+
 .project {
     width: 75%;
     margin: auto;
@@ -9,22 +14,21 @@ body{
 
 .codeContent {
   position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
-  display: none;
+  width: 75%
 }
 
 .editor { 
     position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     margin: auto;
     height: 500px;
+}
+
+iframe{
+  position: relative;
+  margin: auto;
+  width: 75%;
+  
 }
 
 .expandProject {
