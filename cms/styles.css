@@ -7,6 +7,10 @@ details{
   flex-direction: column;
 }
 
+summary:hover{
+  cursor: pointer;
+}
+
 .project {
     width: 75%;
     margin: auto;
@@ -28,6 +32,7 @@ iframe{
   position: relative;
   margin: auto;
   width: 75%;
+  height: 400px;
   
 }
 
@@ -70,12 +75,7 @@ iframe{
   transition: 0.3s;
 }
   
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-    background-color: #ddd;
-  }
-  
   /* Create an active/current tablink class */
-  .tab button.active {
-    background-color:#ccc;
+  .active, button:hover{
+    background-color:#ddd;
   }

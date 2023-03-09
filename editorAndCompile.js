@@ -1,4 +1,3 @@
-
 var language_id = 62;
 var start;
 var end;
@@ -30,54 +29,17 @@ const deleteEditor = () => {
     button.setAttribute("disabled", "true");
 }
 
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
-
-const openFile = (path) => {
-
-    let file = path.files[0];
-    
-    let reader = new FileReader();
-
-    reader.readAsTest(file);
-
-    reader.onload = function() {
-        console.log(reader.result);
-    }
-
-    reader.onerror = function(){
-        console.log(reader.error);
-    }
-
-    editor.setValue("test");
-}
-
 const changeTab = (button, editorNum) => {
     // Declare all variables
     let codeTab = document.getElementsByClassName("codeTab");
 
     // Get all elements with class="codeTab" & remove the class "active"
     for (let i = 0; i < codeTab.length; i++) {
-        codeTab[i].removeAttribute("active");
+        codeTab[i].className = "codeTab";
     }
 
     //Set clicked tab's class to "active"
-    button.setAttribute("active", "true");
+    button.className += " active";
 
     //Check if editor is populated already. If yes, delete it & set object to null
     if(editor != null){
@@ -88,25 +50,31 @@ const changeTab = (button, editorNum) => {
     createEditor(editorNum);
 }
 
-const changeProject = (proj) => {
-    let codeContent;
+const changeProject = (section, file) => {
 
-    codeContent = document.getElementsByClassName("codeContent");
-    for(let i = 0; i < codeContent.length; i++){
-        codeContent[i].style.display = "none";
-    }
-
-    proj.childeNode.childeNode.style.display = "block";
-    
-    document.getElementById("defaultOpen").click();
-}
-
-function closeElement(evt){
+    console.log("in change project start");
     if(editor != null){
         deleteEditor();
     }
+    
+    if(section.parentElement.open){
+        section.parentElement.close;
+        
+        console.log("open is true");
+    }else{
+        console.log("in the else");
+        createEditor(file);
 
-    evt.currentTarget.parentElement.parentElement.style.display = "none";
+    let projects = document.getElementsByTagName('details');
+
+    for(let i = 0; i < projects.length; i++){
+        projects[i].open = "";
+    }
+
+    section.parentElment.open = "true";
+    }
+
+    
 }
 
 const changeLang = (dropDown) => {
@@ -240,43 +208,5 @@ const changeChar = (str) => {
     }
 
     return str;
-}
-
-const preSet = (id) => {
-    let str;
-
-    if(id == 54){
-        str = `#include <iostream>
-using namespace std;
-        
-int main() {
-    cout << "Hello World in C++!";
-    return 0;
-}`;
-    }else if(id == 51){
-        str =
-`using System;
-
-class HelloWorld {
-  static void Main() {
-    Console.WriteLine("Hello World in C#!");
-  }
-}`;
-    }else if(id == 62){
-        str = 
-`public class Main {
-	public static void main(String[] args) {
-		System.out.println("Hello World in Java!");
-	}
-}`
-    }else if(id == 63){
-        str = `console.log("Hello World in Javascript!")`;
-    }else if(id == 68){
-        str = `echo "Hello World in PHP!"`;
-    }else if(id == 71){
-        str = `print("Hello World in Python!")`;
-    }
-
-    editor.setValue(str, 1);
 }
 
