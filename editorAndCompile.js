@@ -30,13 +30,39 @@ const deleteEditor = () => {
     button.setAttribute("disabled", "true");
 }
 
-const openFile = () => {
-    let obj, file;
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
 
-    /*obj = new ActiveXObject("Scripting.FileSystemObject");
-    file = obj.GetFile("javaFiles/Stack.java");
+const openFile = (path) => {
 
-    let str = file.toString();*/
+    let file = path.files[0];
+    
+    let reader = new FileReader();
+
+    reader.readAsTest(file);
+
+    reader.onload = function() {
+        console.log(reader.result);
+    }
+
+    reader.onerror = function(){
+        console.log(reader.error);
+    }
 
     editor.setValue("test");
 }

@@ -17,7 +17,7 @@
                     <button class="codeTab" onclick="changeTab(this, 'BRscript.js')">JS</button>
                     <span>Minimize Code</span>
                 </div>
-                <div id="BRindex.html" class="editor" style="display: none;">html</div>
+                <div id="BRindex.html" class="editor" style="display: none;"><iframe src="test.txt"></iframe></ifram></div>
                 <div id="BRstyle.css" class="editor" style="display: none;">css</div>
                 <div id="BRscript.js" class="editor" style="display: none;">js</div>
             </div>
@@ -33,7 +33,8 @@
                 <div class="tab">
                     <button class="codeTab" onclick="changeTab(this, 'java')">Java</button>
                 </div>
-                <button onclick="openFile()">Test</button>
+                <button onclick="readTextFile('./test.txt')">Test</button>
+                <input type="file">
                 <div id="java" class="editor" style="display: none;">public class Main {
                     public static void main(String[] args) {
                         System.out.println("Hello World in Java!");
