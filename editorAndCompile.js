@@ -4,9 +4,9 @@ var end;
 
 var editor;
 
-const createEditor = (editorNum) => {
+const createEditor = (fileName) => {
 
-    var root = document.getElementById(editorNum);
+    var root = document.getElementById(fileName);
     root.parentNode.insertBefore(root.cloneNode(true), root);
     root.setAttribute("style", "");
 
@@ -15,6 +15,8 @@ const createEditor = (editorNum) => {
     editor.session.setMode("ace/mode/c_cpp");
 
     document.getElementById("compileButton").removeAttribute('disabled');
+
+    changeLang(fileName);
                 
 }
             
@@ -77,24 +79,23 @@ const changeProject = (section, file) => {
     
 }
 
-const changeLang = (dropDown) => {
-    language_id = dropDown.value;
-    console.log("id",language_id);
+const changeLang = (fileName) => {
 
-    let name;
+    let type = fileName.split(".");
+    let name = '';
 
-    switch(language_id){
-        case "54": name = 'c_cpp';
+    switch(type[1]){
+        case "css": name = 'css';
                 break;
-        case "51": name = 'csharp';
+        case "html": name = 'html';
                 break;
-        case "62": name = 'java';
+        case "java": name = 'java';
                 break;
-        case "63": name = 'javascript';
+        case "js": name = 'javascript';
                 break;
-        case "68": name = 'php';
+        case "php": name = 'php';
                 break;
-        case "71": name = 'python';
+        case "py": name = 'python';
     }
     editor.session.setMode('ace/mode/' + name);
     console.log(name);
