@@ -67,16 +67,12 @@ const changeProject = (section, file) => {
         console.log("in the else");
         createEditor(file);
 
-    let projects = document.getElementsByTagName('details');
+        let projects = document.getElementsByTagName('details');
 
-    for(let i = 0; i < projects.length; i++){
-        projects[i].open = "";
+        for(let i = 0; i < projects.length; i++){
+            projects[i].open = false;
+        }
     }
-
-    section.parentElment.open = "true";
-    }
-
-    
 }
 
 const changeLang = (fileName) => {
@@ -99,8 +95,6 @@ const changeLang = (fileName) => {
     }
     editor.session.setMode('ace/mode/' + name);
     console.log(name);
-
-    preSet(language_id);
 }
     
 const handleCompile = (button) => {

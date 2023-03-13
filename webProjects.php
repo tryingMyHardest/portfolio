@@ -31,14 +31,14 @@
         <section class="project">
             <h3>Java File</h3>
             <details>
-                <summary onclick="changeProject(this, 'java')">See More</summary>
+                <summary onclick="changeProject(this, 'java.java')">See More</summary>
                 <div class="codeContent">
                     <div class="tab">
-                        <button class="codeTab active" onclick="changeTab(this, 'java')">Java</button>
-                        <button class="codeTab" onclick="changeTab(this, 'hello')">Hello World</button>
+                        <button class="codeTab active" onclick="changeTab(this, 'java.java')">Java</button>
+                        <button class="codeTab" onclick="changeTab(this, 'hello.java')">Hello World</button>
                     </div>
-                <div id="java" class="editor" style="display: none;"><?= file_get_contents("javaFiles/linkedlist.java")?></div>
-                <div id="hello" class="editor" style="display: none;"><?= file_get_contents("javaFiles/hello.java")?></div>
+                <div id="java.java" class="editor" style="display: none;"><?= file_get_contents("javaFiles/linkedlist.java")?></div>
+                <div id="hello.java" class="editor" style="display: none;"><?= file_get_contents("javaFiles/hello.java")?></div>
                 <button id="compileButton" onclick="handleCompile(this)">Compile</button>
                 <div id="output"></div>
                 </div class="codeContent">
