@@ -1,5 +1,6 @@
 body{
-    background-color: gray;
+    background-color:#dfe8f7;
+    color: #040d13;
 }
 
 details{
@@ -124,5 +125,73 @@ iframe{
     }
     50%, 100% {
       background-color: rgba(225, 225, 225, 0.2);
+    }
+  }
+
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fcfdff;
+  }
+
+  .logo{
+    margin-left: 25px;
+  }
+
+  ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+  }
+
+  li{
+    margin-right: 25px;
+  }
+  
+  summary{
+    display: absolute;
+  }
+  summary:hover{
+    color: #44ce71;
+  }
+
+  details{
+    display: absolute;
+  }
+
+
+  a{
+    color: #040d13;
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: #44ce71;
+  }
+
+  .section-divider {
+    display: block;
+    height: 1px;
+    margin: 0;
+    border: none;
+    background-color: #d3dae2;
+  }
+
+
+  details{
+    text-decoration: none;
+    animation: fadeDropdown 0.2s; /* required for the fade animation */
+  }
+
+  ::marker{ display:none; } summary{ list-style: none }
+  
+  @keyframes fadeDropdown {
+      0% {
+          opacity: 0;
+      }
+  
+      100% {
+          opacity: 1;
     }
   }

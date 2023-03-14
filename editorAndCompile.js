@@ -205,3 +205,12 @@ const changeChar = (str) => {
     return str;
 }
 
+const dropDown = () => {
+    let div = document.getElementById("drop-down");
+
+    if(div.style.display == "none"){
+        div.style.display = "absolute";
+    }else{
+        div.style.display = "none";
+    }
+}

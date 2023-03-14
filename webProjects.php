@@ -8,6 +8,29 @@
 </head>
 <body>
 
+<nav class="navbar">
+      <a class="logo" href="index.html">Alex</a>
+
+      <div>
+        <ul>
+          <li>
+            <a href="#header">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <details>
+              <summary>Projects</summary>
+              <a href="webProjects.php">Web Projects</a>
+              <div class="section-divider"></div>
+              <a href="otherProjects.php">Algorithms & Data Structures</a>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
 <section class="project">
     <h3>First Webpage</h3>
     <details>
