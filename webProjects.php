@@ -9,7 +9,7 @@
 <body>
 
 <nav class="navbar">
-      <a class="logo" href="index.html">Alex</a>
+      <a class="logo" href="index.html"><h1>Alex</h1></a>
 
       <div>
         <ul>
