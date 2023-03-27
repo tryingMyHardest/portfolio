@@ -11,24 +11,23 @@
 <nav class="navbar">
       <a class="logo" href="index.html"><h1>Alex</h1></a>
 
-      <div>
-        <ul>
-          <li>
-            <a href="#header">Home</a>
+        <div>
+          <div class="dropDown">
+            <a href="index.html#header">Home</a>
+</div>
+<div class="dropDown">
+  <a href="#">About</a>
+</div>
+          <div class="dropDown">
+                <a href="#">Projects</a>
+                <div class="menu">
+                    <a href="webProjects.php">Web Projects</a>
+                    <div class="section-divider"></div>
+                    <a href="#">Algoriths & Data Structures</a>
+                </div>
+            </div>
           </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <details>
-              <summary>Projects</summary>
-              <a href="webProjects.php">Web Projects</a>
-              <div class="section-divider"></div>
-              <a href="otherProjects.php">Algorithms & Data Structures</a>
-            </details>
-          </li>
-        </ul>
-      </div>
+</div>
     </nav>
 
 <section class="project">

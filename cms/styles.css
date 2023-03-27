@@ -131,9 +131,14 @@ iframe{
 
   nav{
     display: flex;
-    align-items: center;
     justify-content: space-between;
     background-color: #fcfdff;
+  }
+
+  nav > div{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
   }
 
   .logo{
@@ -149,18 +154,6 @@ iframe{
   li{
     margin-right: 25px;
   }
-  
-  summary{
-    display: absolute;
-  }
-  summary:hover{
-    color: #44ce71;
-  }
-
-  details{
-    display: absolute;
-  }
-
 
   a{
     color: #040d13;
@@ -169,20 +162,6 @@ iframe{
 
   a:hover{
     color: #44ce71;
-  }
-
-  .section-divider {
-    display: block;
-    height: 1px;
-    margin: 0;
-    border: none;
-    background-color: #d3dae2;
-  }
-
-
-  details{
-    text-decoration: none;
-    animation: fadeDropdown 0.2s; /* required for the fade animation */
   }
 
   ::marker{ display:none; } summary{ list-style: none }
@@ -196,3 +175,52 @@ iframe{
           opacity: 1;
     }
   }
+
+  .dropDown {
+    padding: 12px 0px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dropDown > a{
+    padding: 0px 30px;
+    gap: 2px;
+}
+
+.dropDown:hover .menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu{
+    position: absolute;
+    top: 50px;
+    display: grid;
+    background: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+}
+
+.menu > a {
+    font-size: 14px;
+    padding: 12px 20px;
+}
+
+.menu > a:hover{
+  background: #ffffff;
+}
+.dropDown:hover{
+    color: #252525;
+    background: #dfe8f7;
+}
+
+.section-divider{
+    display: block;
+    height: 1px;
+    margin: 0;
+    border: none;
+    background-color: #252525;
+    width: 85%;
+    margin: auto;
+}
