@@ -1,0 +1,391 @@
+@media only screen and (max-device-width: 767px), (width < 767px){
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        background: #404040;
+        margin: 0;
+    }
+    ::-webkit-scrollbar{
+        display: none;
+    }
+
+    /* -------------------------------------- Nav Bar --------------------------------------- */
+    nav{
+        margin-top: 5vh;
+        position: fixed;
+        top: 0;
+        background: transparent;
+        display: flex;
+        justify-content: right;
+        width: 100%;
+        transition: all .5s ease;
+        z-index: 10;
+    }
+
+    .menu{
+        display: none;
+    }
+    @keyframes fadeIn {
+        from{transform: translateY(20px);}
+        to{opacity: 1; transform: none;}
+    }
+
+    .burger{
+        display: flex;
+        flex-direction: column;
+        margin: 2px;
+        width: 50px;
+        opacity: 0;
+        justify-content: space-evenly;
+        animation: fadeIn 3s forwards var(--d);
+    }
+
+    .burger:hover .line{
+        background: #b9b9b9;
+        cursor: pointer;
+    }
+
+    .line{
+        height: 2px;
+        background-color: #a8a8a8;
+        width: 50%;
+        margin: .5px auto .5px auto ;
+    }
+
+    /* ----------------------------------------- Intro ------------------------------------------------- */
+    .intro .textLine{
+        display: block;
+    }
+    
+    .intro{
+        width: fit-content;
+        background: rgba(255,255,255,.1);
+        backdrop-filter: blur(25px);
+        padding: 5vh 5vw;
+        color: transparent;
+    }
+    .textLine{
+        --total: calc(var(--duration) + var(--delay));
+        padding-left: 5px;
+        padding-right: 25px;
+        position: relative;
+        overflow: hidden;
+        animation: reveal 1.5s var(--total) forwards;
+        
+    }
+    
+    .color{
+        --total: calc(var(--duration) + var(--delay));
+        position: relative;
+        color: transparent;
+        overflow: hidden;
+        animation: revealColor 1.5s var(--total) forwards;
+    }
+    
+    
+    .textLine:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        background-color: #a8a8a8;
+        animation: rollIn var(--duration) var(--delay) forwards,
+        rollOut var(--duration) var(--total) forwards;
+    }
+    
+    .textLine:not(:first-child){
+        margin-top: 5px;
+    }
+
+    @keyframes reveal {
+        to {
+            color: #a8a8a8;
+        }
+    }
+    @keyframes revealColor {
+        to {
+            color: #27497c;
+        }
+    }
+    @keyframes rollIn {
+        from {
+            transform: scaleX(0);
+        }
+        to {
+            transform: scaleX(1);
+        }
+    }
+    @keyframes rollOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(105%);
+        }
+    }
+
+    header{
+        height: 80vh;
+        width: 95vw;
+        padding-left: 5vw;
+        padding-top: 20vh;
+        background: url(header-background-dark.svg);
+    }
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 767px){
+
+    @font-face {
+        font-family: jostTitle;
+        src: url(Jost/fonts/Jost-400-Book.ttf);
+    }
+    @font-face {
+        font-family: jostLight;
+        src: url(Jost/fonts/Jost-200-Thin.ttf);
+    }
+    @font-face {
+        font-family: jostHair;
+        src: url(Jost/fonts/Jost-100-Hairline.ttf);
+    }
+    html{
+        scroll-behavior: smooth;
+        font-size: 20px;
+    }
+    body{
+        background: #44519f;
+        margin: 0;
+    }
+    ::-webkit-scrollbar-track{
+        display: none;
+    }
+    h1{
+        font-size: 4rem;
+        font-family: jostTitle;
+    }
+    h2{
+        font-size: 3rem;
+        font-family: jostLight;
+    }
+
+    /* -------------------------------------- Nav Bar --------------------------------------- */
+    nav{
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 10vh;
+        transition: all .5s ease;
+        z-index: 10;
+    }
+
+    .title{
+        font-size: 3rem;
+        margin-top: 1.5vh;
+        margin-left: 2.5vw;
+        opacity: 0;
+        color: #e3f2ff;
+        transition: all 1s ease-in-out;
+    }
+
+    .display{
+        opacity: 1;
+    }
+
+    .burger{
+        display: none;
+    }
+
+    .menu{
+        display: flex;
+        padding-right: 5vw;
+        height: fit-content;
+    }
+
+    .menu button{
+        margin-top: 5vh;
+        border-style: none;
+        background: none;
+        opacity: 0;
+        animation: fadeIn 3s forwards var(--d);
+        font-family: jostLight;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        font-size: 1rem;
+        color: #e3f2ff;
+        transition: color .5s ease;
+    }
+
+    .menu button:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #a1ffba;
+        transform: scaleX(0);
+        transform-origin: right;
+        z-index: -1;
+        transition: transform .5s ease;
+    }
+
+    .menu button:hover{
+        cursor: pointer;
+        color: #252525;
+    }
+
+    .menu button:hover:after{
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    @keyframes fadeIn {
+        from{opacity: 0;transform: translateY(20px);}
+        to{opacity: 1; transform: none;}
+    }
+    @keyframes fadeOut {
+        from{transform: translateY(0);}
+        to{opacity: 0;transform: translateY(20px);}
+    }
+
+    /* ----------------------------------------- Intro ------------------------------------------------- */
+    header{
+        height: 80vh;
+        width: 95vw;
+        padding-left: 5vw;
+        padding-top: 20vh;
+    }
+
+    .intro .textLine{
+        display: block;
+    }
+    
+    .intro{
+        width: fit-content;
+        padding: 2.5vh 5vw;
+        color: transparent;
+        border-radius: 25px;
+        z-index: 10;
+    }
+    .textLine{
+        --total: calc(var(--duration) + var(--delay));
+        padding-left: 5px;
+        padding-right: 25px;
+        position: relative;
+        overflow: hidden;
+        animation: reveal 1.5s var(--total) forwards;
+        z-index: 10;
+        
+    }
+    
+    .color{
+        --total: calc(var(--duration) + var(--delay));
+        color: transparent;
+        animation: revealColor 1.5s var(--total) forwards;
+    }
+    
+    
+    .textLine:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        background-color: #e3f2ff;
+        animation: rollIn var(--duration) var(--delay) forwards,
+        rollOut var(--duration) var(--total) forwards;
+    }
+    
+    .textLine:not(:first-child){
+        margin-top: 5px;
+    }
+
+    @keyframes reveal {
+        to {
+            color: #e3f2ff;
+        }
+    }
+    @keyframes revealColor {
+        to {
+            color: #da6f6f;
+        }
+    }
+    @keyframes rollIn {
+        from {
+            transform: scaleX(0);
+        }
+        to {
+            transform: scaleX(1);
+        }
+    }
+    @keyframes rollOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(105%);
+        }
+    }
+
+    .circles{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 5;
+    }
+    
+    .circles li{
+        position: absolute;
+        display: block;
+        list-style: none;
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+    li.bubbleOdd{
+        background: var(--b);
+        aspect-ratio: 1/1;
+        width: var(--width);
+        top: calc(100vh - var(--width) - 5vh);
+        animation: float var(--duration) linear  infinite var(--d);
+    }
+
+    li.bubbleEven{
+        background: var(--b);
+        aspect-ratio: 1/1;
+        width: var(--width);
+        top: calc((var(--width) + 5vh));
+        animation: float var(--duration) linear infinite var(--d);
+    }
+
+    @keyframes float {
+
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(120vw);
+            opacity: 1;
+        }
+        
+    }
+}
