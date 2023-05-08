@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @media (width > 1000px) {
+            body{
+                display: grid;
+                grid-template-areas: 
+                    "head head head"
+                    "aside article article"
+                    "foot foot foot";
+                grid-template-rows: 30px auto 30px;
+            }
+
+            header{ grid-area: head; background-color: red;}
+            article{ grid-area: article; background-color: blue; padding: 25px;}
+            aside{ grid-area: aside; background-color: aquamarine;}
+            footer{ grid-area: foot; background-color: green;}
+            }
+
+            @media (width < 1000px) {
+                body{
+                display: grid;
+                grid-template-areas: 
+                    "head head head"
+                    "article article article"
+                    "aside aside aside"
+                    "foot foot foot";
+                grid-template-rows: 30px fit-content 30px;
+            }
+
+            header{ grid-area: head; background-color: red;}
+            article{ grid-area: article; background-color: blue;}
+            aside{ grid-area: aside; background-color: aquamarine;}
+            footer{ grid-area: foot; background-color: green; bottom: 0;}
+            }
+            
+            .container{
+                display: flex;
+                margin: auto;
+                width: 90%;
+                margin-bottom: 1000px;
+            }
+
+            .card{
+                position: relative;
+                left: 0;
+                background-color: blue;
+                height: 350px;
+                width: 40%;
+                border-radius: 10px;
+                box-shadow: 0 0 25px #252525;
+                padding: 25px;
+                transition: all .25s ease;
+            }
+
+            .card:not(:first-child){
+                margin-left: -30px;
+            }
+
+            .card:hover{
+                transform: translateY(-30px);
+            }
+
+            .card:hover ~ .card{
+                left: 50px;
+            }
+            
+            p span{
+                display: inline-block;
+                opacity: 0;
+            }
+
+            .card:hover > p span{
+                animation: reveal1 .5s forwards var(--d) ;
+            }
+
+            @keyframes reveal1 {
+                from{transform: translateY(20px);}
+                to{opacity: 1; transform: none;}
+            }
+
+            .banner{
+                width: fit-content;
+                margin: auto;
+            }
+            
+            .content span{
+                --total: calc(var(--duration) + var(--delay));
+                padding-left: 5px;
+                padding-right: 25px;
+                position: relative;
+                display: block;
+                color: transparent;
+                overflow: hidden;
+                
+            }
+
+            .fade{
+                animation: reveal 1s var(--total) forwards;
+            }
+
+            span.cover:after{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: scaleX(0);
+                transform-origin: left;
+                background-color: #14305a;
+                animation: rollIn var(--duration) var(--delay) forwards,
+                rollOut var(--duration) var(--total) forwards;
+            }
+
+            .content span:not(:first-child)::after{
+                border-top: 1px solid #004ab8;
+            }
+
+            @keyframes reveal {
+	            to {
+		            color: #fff;
+	            }
+            }
+            @keyframes rollIn {
+                from {
+                    transform: scaleX(0);
+                }
+                to {
+                    transform: scaleX(1);
+                }
+            }
+            @keyframes rollOut {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(105%);
+                }
+            }
+            
+        </style>
+
+        
+    </head>
+<body>
+    <header>Header</header>
+<article>
+    <div class="container">
+        <div class="card">Card 1
+            <p>
+        <span style="--d: 0s">This is the first</span>
+        <span style="--d: .5s">This is the second</span>
+        <span style="--d: 1s">This is the third</span>
+        <span style="--d: 1.5s">This is the fourth</span>
+        <span style="--d: 2s">This is the fifth</span>
+    </p></div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+        <div class="card">Card 5</div>
+        <div class="card">Card 6</div>
+    </div>
+
+    <div class="banner">
+        <h1>Alex is</h1>
+        <h2 class="content" style="--duration: 1s">
+        <span style="--delay: 0s">Dedicated</span>
+        <span style="--delay: .3s">Hard Working</span>
+        <span style="--delay: .5s">&amp;</span>
+        <span style="--delay: .8s">Cute</span>
+        </h2>
+    </div>
+</article>
+<aside>Aside
+    <input type="color"/>
+    <input type="file"/>
+</aside>
+<footer>Footer</footer>
+</body>
+<script>
+    
+     const callback = (entries, observer) => {
+
+         entries.forEach(entry => {
+             const banner = entry.target.querySelector('.content');
+      
+             if (entry.isIntersecting) {
+                for(const child of banner.children){
+                child.classList.add('fade');
+                child.classList.add('cover');
+                };
+                return;
+             }
+             for(const child of banner.children){
+                child.classList.remove('fade');
+                child.classList.remove('cover');
+                }
+
+         });
+     }
+
+     let observer = new IntersectionObserver(callback, {threshold: 1});
+
+     observer.observe(document.querySelector('.banner'));
+</script>
+</html>

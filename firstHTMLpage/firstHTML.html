@@ -5,7 +5,8 @@
 <meta charset="UTF-8">
 <title>Exam 1: Boat Rentals</title>
 <style>
-/*General settings for whole site*/
+	@media only screen and (width > 1020px){
+		/*General settings for whole site*/
 	body{
 		font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
 		margin: 0;
@@ -353,6 +354,367 @@
 		line-height: 20px;
 		font-weight: 500;
 	}
+	}
+
+
+
+
+
+
+
+	@media only screen and (width < 1050px) {
+		/*General settings for whole site*/
+	body{
+		font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+		margin: 0;
+		background-color: #F0F0F0;
+		font-weight: 200;
+	}
+	h3{
+		font-size: 25px;
+		text-align: center;
+		letter-spacing: 1.25px;
+		color: #232323;
+	}
+	
+/*General settings for content div where all sections go*/
+	.content{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #FFFFFF;
+	}
+	
+/* Header Section*/
+	header{
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 60px;
+		background-color: #816E56;
+		position: fixed;
+		top: 0;
+		z-index: 100;
+	}
+	
+/* Title settings*/
+	.title{
+		float: left;
+		text-align: left;
+		letter-spacing: 2px;
+		width: 25%;
+		padding-left: 150px;
+		color: #fff;
+		position: fixed;
+	}
+	
+/*Image settings to right of title */
+	.logo{
+		width: 25%;
+		float: left;
+		padding-left: 25px;
+		padding-top: 10px;
+		position: fixed;
+	}
+	.logo img{
+		border-radius: 50%;
+	}
+	
+/* Nav bar settings in top left of header */
+	nav {
+		right: 0px;
+		float: right;
+		width: 50%;
+		text-align: right;
+		margin-right: 0;
+		margin-top: 5px;
+		position: fixed;
+		z-index: 100;
+	}
+	nav ul {
+		list-style: none;
+		float: right;
+	}
+	nav ul li {
+		float: left;
+		font-size: 14px;
+		text-align: left;
+		margin-right: 25px;
+		letter-spacing: 2px;
+		font-weight: bold;
+		transition: all 0.3s linear;
+	}
+	ul li a {
+		color: #fff;
+		text-decoration: none;
+	}
+	ul li:hover a {
+		color: #2C9AB7;
+	}
+
+/* Anchor settings specifically for accurate section hrefrences */
+	.anchor{
+		top: -75px;
+		position: absolute;
+	}
+	
+/* About section settings */
+	#about{
+		position: relative;
+		width: 100%;
+		margin-top: 75px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 10px;
+		color: #232323;
+	}	
+	#about p{
+		margin-left: 50px;
+		margin-right: 50px;
+		line-height: 25px;
+		letter-spacing: 1px;
+		text-align: justify;
+		font-weight: lighter;
+	}
+	#about ul{
+		list-style: none;
+		font-weight: 600;
+		line-height: 25px;
+		letter-spacing: .5px;
+		padding-left: 8px;
+		text-align: center;
+	}
+	#about h4{
+		text-align: center;
+		font-size: 17px;
+		letter-spacing: 1.25px;
+		padding-bottom: 5px;
+		border-bottom: solid 1px #232323;
+	}
+	#about a{
+		color: #232323;
+		text-decoration: none;
+		font-style: italic;
+		letter-spacing: 1px;
+	}
+	#about a:hover{
+		color: #2C9AB7;
+	}
+
+/* Embedded Youtube Video settings */
+	iframe{
+		width: 560px;
+		height: 315px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		align-content: center;
+		border: solid 25px #9E9283;
+		background-color: #f0f0f0;;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+/* Price section settings */
+	#price{
+		position: relative;
+		padding-bottom: 75px;
+		overflow-x: hidden;
+	}
+	
+/* Settings specifically for the content slider in price section */
+	#slider{
+		position: relative;
+		width: 90%;
+		height: 400px;
+		margin: auto;
+		perspective: 1500px;
+		transform-style: preserve-3d;
+		
+	}
+	.slideInfo{
+		color: #fff;
+		line-height: 25px;
+		text-align: left;
+		padding-left: 75px;
+		padding-right: 75px;
+		font-size: 18px;
+		letter-spacing: 1px;
+	}
+	.slideInfo ul{
+		list-style: none;
+	}
+	#slider label{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		right: 0;
+		color: #FFFFFF;
+		border-radius: 5px;
+		display: block;
+		transition: transform 400ms ease;
+		background-color: #9E9283;
+	}
+	#slider h2{
+		font-size: 22px;
+		text-align: center;
+		letter-spacing: 2px;
+		border-bottom: 1.5px solid white;
+		padding-top: 25px;
+		padding-bottom: 5px;
+	}
+
+/* Radio input settings for slider */
+	input[type=radio]{
+		position: relative;
+		top: 110%;
+		left: 52%;
+		width: 15px;
+		height: 15px;
+		opacity: .4;
+		transform: translateX(-83px);
+	}
+	input[type=radio]:nth-child(6){
+		margin-right: 0px;
+	}
+	input[type=radio]:checked{
+		opacity: .8;
+		accent-color: #2C9AB7;
+	}
+	
+/* Active slide settings */
+	#kayak:checked ~ #kayakInfo,
+	#canoe:checked ~ #canoeInfo,
+	#rowBoat:checked ~ #rowBoatInfo,
+	#paddleBoard:checked ~ #paddleBoardInfo{
+		box-shadow: 0 13px 26px rgba(0,0,0,.3), 0 12px 6px rgba(0,0,0,.2);
+		transform: translate3d(0%, 0, 0px);
+	}
+	
+/* Next slide display settings (to right) */
+	#kayak:checked ~ #canoeInfo,
+	#canoe:checked ~ #rowBoatInfo,
+	#rowBoat:checked ~ #paddleBoardInfo,
+	#paddleBoard:checked ~ #sailBoatInfo,
+	#sailBoat:checked ~ #kayakInfo{
+		box-shadow: 0 6px 10px rgba(0,0,0,.3), 0 2px 2px rgba(0,0,0,.2);
+		transform: translate3d(20%, 0, -100px);
+		opacity: .75;
+	}
+	
+/* Next, next slide display settings (twice to right) */
+	#kayak:checked ~ #rowBoatInfo,
+	#canoe:checked ~ #paddleBoardInfo,
+	#rowBoat:checked ~ #sailBoatInfo,
+	#paddleBoard:checked ~ #kayakInfo,
+	#sailBoat:checked ~ #canoeInfo{
+		box-shadow: 0 1px 4px rgba(0,0,0,.4);
+		transform: translate3d(40%, 0, -250px);
+		opacity: .25;
+	}
+	
+/* Previous, previous slide display settings (twice to left) */
+	#kayak:checked ~ #paddleBoardInfo,
+	#canoe:checked ~ #sailBoatInfo,
+	#rowBoat:checked ~ #kayakInfo,
+	#paddleBoard:checked ~ #canoeInfo,
+	#sailBoat:checked ~ #rowBoatInfo{
+		box-shadow: 0 1px 4px rgba(0,0,0,.4);
+		transform: translate3d(-40%, 0, -250px);
+		opacity: .25;
+	}
+	
+/* Previous slide display settings (to left) */
+	#kayak:checked ~ #sailBoatInfo,
+	#canoe:checked ~ #kayakInfo,
+	#rowBoat:checked ~ #canoeInfo,
+	#paddleBoard:checked ~ #rowBoatInfo,
+	#sailBoat:checked ~ #paddleBoardInfo{
+		box-shadow: 0 6px 12px rgba(0,0,0,.3), 0 2px 2px rgba(0,0,0,.2);
+		transform: translate3d(-20%, 0, -100px);
+		opacity: .75;
+	}
+	
+/* Plan day section settings (calculator section) */
+	#planDay{
+		position: relative;
+		width: 100%;
+		margin: auto;
+		align-content: center;
+		height: auto;
+	}
+	#planDay table{
+		width: 100%;
+		background-color: #816E56;
+		padding: 10px;
+		line-height: 30px;
+		color: #FFFFFF;
+		text-align: left;
+	}	
+	#planDay select{
+		background-color: #9E9283;
+		border-color: #fff;
+		border-radius: 5px;
+		color: #FFFFFF;
+		text-align: center;
+	}	
+	input[type=button]{
+		background-color: #9E9283;
+		color: #fff;
+		border-color: #FFFFFF;
+		border-radius: 5px;
+		border-style: solid;
+		border-width: thin;
+		padding-left: 15px;
+		padding-right: 15px;
+		letter-spacing: .75px;
+	}
+	
+/* Input tag settings for buttons and text box below table */
+	.bottomButtons{
+		padding-top: 25px;
+		display: flex;
+		justify-content: space-between;
+	}	
+	.bottomButtons input[type=text]{
+		color: #232323;
+		font-size: 30px;
+		text-align: right;
+		border: none;
+		font-variant-numeric: tabular-nums;
+		font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+		letter-spacing: 1px;
+		font-weight: 600;
+	}
+
+/* Contact section settings */
+	#contact{
+		position: relative;
+		padding-bottom: 25px;
+		padding-top: 25px;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#contact h4{
+		text-align: center;
+		letter-spacing: 1px;
+		border-bottom: solid 1.5px #232323;
+		padding-bottom: 5px;
+	}
+	.contactInfo{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		text-align: center;
+		letter-spacing: .5px;
+		line-height: 20px;
+		font-weight: 500;
+	}
+	}
+
 </style>
 	
 <script>
