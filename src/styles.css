@@ -5,7 +5,7 @@
 */
 
 
-@media only screen and (max-device-width: 767px), (width < 767px){
+@media only screen and (max-device-width: 1000px), (width < 1000px){
     html{
         scroll-behavior: smooth;
     }
@@ -152,7 +152,7 @@
 
 
 
-@media only screen and (min-width: 767px){
+@media only screen and (min-width: 1000px){
 
     @font-face {
         font-family: jostTitle;
@@ -210,13 +210,16 @@
         font-family: jostLight;
         color: #e3f2ff;
         margin-top: 10px;
+        padding-left: 10px;
         margin-bottom: 0;
+        border-left: solid 2.5px #404040;
     }
     h5{
         font-size: 2rem;
         font-family: jostHair;
         color: #404040;
-        margin-top: 0;
+        margin-top: 10px;
+        margin-bottom: 40px;
     }
     p{
         font-family: jostLight;
@@ -526,7 +529,7 @@
         position: relative;
         background: #52b350;
         margin-top: 130px;
-        padding: 0px 50px 150px 100px;
+        padding: 0px 50px 50px 50px;
         box-sizing: border-box;
         transform: skewY(5deg);
         
@@ -564,6 +567,9 @@
     .project-info{
         width: 30%;
     }
+    .project-header{
+        display: flex;
+    }
 
     .project:nth-child(even){
         flex-direction: row-reverse;
@@ -574,14 +580,15 @@
         border-style: none;
         border-radius: 5px;
         border: 3px solid #9be69a;
-        padding: 5px;
+        padding: 2.5px;
     }
     .number{
+        font-size: 2.5rem;
         color: #404040;
         font-family: jostHair;
-        border-right: solid 5px #404040;
-        padding-right: 10px;
-        margin-right: 20px;
+        border-style: none;
+        border-left: none;
+        padding-right: 5px;
     }
 
     /* ----------------------------------------- Project Code ------------------------------------------------------------- */

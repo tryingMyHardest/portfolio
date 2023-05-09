@@ -5,8 +5,11 @@
 <meta charset="UTF-8">
 <title>Exam 1: Boat Rentals</title>
 <style>
-	@media only screen and (width > 1020px){
+	@media only screen and (width > 1050px){
 		/*General settings for whole site*/
+		html{
+			scroll-behavior: smooth;
+		}
 	body{
 		font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
 		margin: 0;
@@ -64,35 +67,61 @@
 	
 /* Nav bar settings in top left of header */
 	nav {
+		top: 25px;
 		right: 90px;
 		float: right;
-		width: 50%;
+		width: fit-content;
 		text-align: right;
 		margin-right: 0;
 		margin-top: 5px;
 		position: fixed;
 		z-index: 100;
 	}
-	nav ul {
-		list-style: none;
-		float: right;
-	}
-	nav ul li {
-		float: left;
-		font-size: 14px;
-		text-align: left;
-		margin-right: 25px;
-		letter-spacing: 2px;
-		font-weight: bold;
-		transition: all 0.3s linear;
-	}
-	ul li a {
-		color: #fff;
-		text-decoration: none;
-	}
-	ul li:hover a {
-		color: #2C9AB7;
-	}
+
+	.item-menu{
+    display: flex;
+    max-width: 100%;
+    min-width: 70%;
+    height: 2vh;
+    justify-content: right;
+    align-items: center;
+  }
+
+  .line{
+    height: 2px;
+    background-color: #c7ae96;
+    width: 50%;
+    margin: 3px auto 3px auto ;
+  }
+  
+  .item {
+    padding: 10px 15px;
+    padding-top: 15px;
+    width: fit-content;
+    height: fit-content;
+    border-style: none;
+    background: none;
+    transition: all .25s ease;
+    color: #c7ae96;
+    text-decoration: none;
+    font-family: Omedium;
+    letter-spacing: 2px;
+    font-size: 1rem;
+  }
+  
+  .item:hover{
+    background: rgba(200, 200, 200, .3);
+    cursor: pointer;
+  }
+
+  #burger{
+    display: none;
+  }
+  
+  .back-button{
+    display: none;
+    height: 1px;
+  }
 
 /* Anchor settings specifically for accurate section hrefrences */
 	.anchor{
@@ -362,13 +391,18 @@
 
 
 
-	@media only screen and (width < 1050px) {
+	@media only screen and (max-device-width: 1050px), (width < 1050px) {
 		/*General settings for whole site*/
 	body{
+
+		--nav-height: 60px;
 		font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
 		margin: 0;
 		background-color: #F0F0F0;
 		font-weight: 200;
+		scroll-behavior: smooth;
+		overflow-x: hidden;
+		padding-top: var(--nav-height);
 	}
 	h3{
 		font-size: 25px;
@@ -378,23 +412,22 @@
 	}
 	
 /*General settings for content div where all sections go*/
-	.content{
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		background-color: #FFFFFF;
-	}
 	
 /* Header Section*/
-	header{
+	#navbar{
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-		height: 60px;
+		height: var(--nav-height);
 		background-color: #816E56;
 		position: fixed;
 		top: 0;
 		z-index: 100;
+		transition: transform .25s;
+	}
+
+	.hide-header{
+		transform: translateY(calc(-2*var(--nav-height)));
 	}
 	
 /* Title settings*/
@@ -406,6 +439,7 @@
 		padding-left: 150px;
 		color: #fff;
 		position: fixed;
+		display: none;
 	}
 	
 /*Image settings to right of title */
@@ -417,6 +451,7 @@
 		position: fixed;
 	}
 	.logo img{
+		height: 75px;
 		border-radius: 50%;
 	}
 	
@@ -424,33 +459,102 @@
 	nav {
 		right: 0px;
 		float: right;
-		width: 50%;
-		text-align: right;
-		margin-right: 0;
+		width: fit-content;
+		margin-right: 10px;
 		margin-top: 5px;
 		position: fixed;
 		z-index: 100;
 	}
-	nav ul {
-		list-style: none;
-		float: right;
-	}
-	nav ul li {
-		float: left;
-		font-size: 14px;
-		text-align: left;
-		margin-right: 25px;
-		letter-spacing: 2px;
-		font-weight: bold;
-		transition: all 0.3s linear;
-	}
-	ul li a {
-		color: #fff;
-		text-decoration: none;
-	}
-	ul li:hover a {
-		color: #2C9AB7;
-	}
+
+	.item-menu{
+  right: -100vw;
+  top: 0;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  background: rgb(37, 37, 37);
+  height: 100vh;
+  width: 75vw;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: -5px 0 25px rgba(37,37,37,.7);
+  transition: all .5s ease;
+}
+
+.line{
+  height: 2px;
+  background-color: #c7ae96;
+  width: 50%;
+  margin: 3px auto 3px auto ;
+}
+
+.item {
+  padding: 0 15px;
+  padding-top: 25px;
+  width: fit-content;
+  height: 10vh;
+  border-style: none;
+  background: none;
+  transition: all .25s ease;
+  color: #c7ae96;
+  text-decoration: none;
+  font-family: Omedium;
+  letter-spacing: 2px;
+  font-size: 1.6rem;
+}
+
+.item:hover{
+  background: rgba(200, 200, 200, .3);
+  cursor: pointer;
+}
+
+.visible{
+  display: flex;
+}
+
+.in-screen {
+  right: 0vw;
+}
+
+.lock-screen{
+  overflow: hidden;
+}
+
+.item{
+  background: none;
+  border-style: none;
+  width: 100%;
+  margin: 2px auto;
+  text-align: right;
+  padding: 5px;
+  padding-top: 10px;
+  border-radius: 0;
+  transition: all .5s ease;
+}
+
+#burger{
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  width: 50px;
+  padding: 10px 5px;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+#burger:hover{
+  background: rgba(200, 200, 200, .3);
+  cursor: pointer;
+}
+
+.back-button{
+  border-style: none;
+  background: none;
+  padding: 0;
+  padding-left: 5px;
+  text-align: left;
+  width: 100%;
+}
 
 /* Anchor settings specifically for accurate section hrefrences */
 	.anchor{
@@ -462,7 +566,6 @@
 	#about{
 		position: relative;
 		width: 100%;
-		margin-top: 75px;
 		margin-left: auto;
 		margin-right: auto;
 		padding-top: 10px;
@@ -694,7 +797,7 @@
 		position: relative;
 		padding-bottom: 25px;
 		padding-top: 25px;
-		width: 50%;
+		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -706,7 +809,7 @@
 	}
 	.contactInfo{
 		display: flex;
-		flex-direction: row;
+		flex-wrap: wrap;
 		justify-content: space-around;
 		text-align: center;
 		letter-spacing: .5px;
@@ -718,6 +821,58 @@
 </style>
 	
 <script>
+	
+
+	var isOpen = false;
+	const change = () => {
+    let el = document.getElementById("menu");
+    let body = document.getElementById('site');
+
+        if(isOpen){
+            el.classList.remove("in-screen");
+            setTimeout(() => {
+                el.classList.remove("visible")}, 250);
+            body.classList.remove("lock-screen");
+            isOpen = false;
+        }else{
+            el.classList.add("visible");
+            setTimeout(() => {
+                el.classList.add("in-screen")}, 5);
+            body.classList.add('lock-screen');
+            isOpen = true;
+        }
+}
+
+visualViewport.addEventListener('resize', function () {resizeScreen();});
+
+
+const resizeScreen = () => {
+    let width = visualViewport.width;
+
+    if(width > 1050 && isOpen){
+        change();
+    }
+}
+
+document.addEventListener('click', function(event) {
+    let menu = this.getElementById("menu");
+    let burger = this.getElementById("burger");
+    let nav = this.getElementById('nav');
+    let arrow = this.getElementById('arrow');
+
+    let outSideMenu = !menu.contains(event.target);
+    let outSideBurger = !burger.contains(event.target);
+    if(nav != null){
+        outSideNav = !nav.contains(event.target);
+        outSideArrow = !arrow.contains(event.target);
+    }
+
+    if(isOpen){
+        if(outSideMenu && outSideBurger){
+            change();
+        }
+    }
+  });
 // Function used to add 2 rows to the calculator, allowing user to enter another boat option
 	function addBoat(){
 		
@@ -864,18 +1019,29 @@
 </script>
 </head>
 
-<body>
+<body id="site">
 <div class="content">
-<header>
+<header class="" id="navbar">
 	<div class="logo"><img src="Lake image vertical.jpeg" alt=""></div>
 	<h3 class="title">Alex's&nbsp;Boat&nbsp;Rental</h3>
 	<nav>
-		<ul>
-			<li><a href="#aboutAnchor">About</a></li>
-			<li><a href="#priceAnchor">Prices</a></li>
-			<li><a href="#planDayAnchor">Plan Your Day</a></li>
-			<li><a href="#contactAnchor">Contact</a></li>
-		</ul>
+		<div id="burger" onclick="change()">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div id="menu" class="item-menu">
+			<button class="item back-button" onclick="change()"><?xml version="1.0" encoding="UTF-8"?>
+				<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+				<svg fill="#c7ae96" width="25px" height="25px" xmlns="http://www.w3.org/2000/svg">
+				  <path d="M15.2928932,12 L12.1464466,8.85355339 C11.9511845,8.65829124 11.9511845,8.34170876 12.1464466,8.14644661 C12.3417088,7.95118446 12.6582912,7.95118446 12.8535534,8.14644661 L16.8535534,12.1464466 C17.0488155,12.3417088 17.0488155,12.6582912 16.8535534,12.8535534 L12.8535534,16.8535534 C12.6582912,17.0488155 12.3417088,17.0488155 12.1464466,16.8535534 C11.9511845,16.6582912 11.9511845,16.3417088 12.1464466,16.1464466 L15.2928932,13 L4.5,13 C4.22385763,13 4,12.7761424 4,12.5 C4,12.2238576 4.22385763,12 4.5,12 L15.2928932,12 Z M19,5.5 C19,5.22385763 19.2238576,5 19.5,5 C19.7761424,5 20,5.22385763 20,5.5 L20,19.5 C20,19.7761424 19.7761424,20 19.5,20 C19.2238576,20 19,19.7761424 19,19.5 L19,5.5 Z"/>
+				</svg>
+			</button>
+			<a href="#aboutAnchor"><button class="item" onclick="change()">About</button></a>
+			<a href="#priceAnchor"><button class="item" onclick="change()">Prices</button></a>
+			<a href="#planDayAnchor"><button class="item" onclick="change()">Plan Your Day</button></a>
+			<a href="#contactAnchor"><button class="item" onclick="change()">Contact</button></a>
+		</div>
 	</nav>
 </header>
 	
@@ -1014,4 +1180,18 @@
 		
 </div>
 </body>
+<script>
+	const nav = document.getElementById("navbar");
+	let lastScrollY = window.scrollY;
+
+	window.addEventListener("scroll", () => {
+		if(lastScrollY < window.scrollY){
+			nav.classList.add('hide-header');
+		}else{
+			nav.classList.remove('hide-header');
+		}
+
+		lastScrollY = window.scrollY;
+	})
+</script>
 </html>
