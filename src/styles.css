@@ -170,6 +170,10 @@
         font-family: jostHeavy;
         src: url(Jost/fonts/Jost-800-Heavy.ttf);
     }
+    @font-face {
+        font-family: jostMed;
+        src: url(Jost/fonts/Jost-500-Medium.ttf);
+    }
     
     html{
         scroll-behavior: smooth;
@@ -209,17 +213,32 @@
         font-size: 2.5rem;
         font-family: jostLight;
         color: #e3f2ff;
-        margin-top: 10px;
+        margin-top: 0;
         padding-left: 10px;
+        line-height: 2.5rem;
         margin-bottom: 0;
         border-left: solid 2.5px #404040;
     }
     h5{
         font-size: 2rem;
         font-family: jostHair;
-        color: #404040;
+        color: #9be69a;
         margin-top: 10px;
-        margin-bottom: 40px;
+        margin-bottom: 0px;
+    }
+    h6{
+        font-size: 1.25rem;
+        font-family: jostMed;
+        margin-top: 0;
+        margin-bottom: 0;
+        letter-spacing: 2.5px;
+    }
+    a{
+        text-decoration: none;
+        color: #9be69a;
+    }
+    a:hover{
+        color: #e3f2ff;
     }
     p{
         font-family: jostLight;
@@ -569,6 +588,7 @@
     }
     .project-header{
         display: flex;
+        align-items: center;
     }
 
     .project:nth-child(even){
