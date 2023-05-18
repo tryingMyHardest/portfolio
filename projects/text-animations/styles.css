@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+    background-color: #0e4ead;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+header{
+    text-align: center;
+    color: #3b83ef;
+}
+
+article{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+}
+h2{
+    text-align: center;
+    color: #10274a;
+}
+span{
+    font-size: 1.5rem;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+    aspect-ratio: 1/1;
+    padding: 2.5px;
+    background-color: #3772ca;
+}
+
+/* ------------------------------------------ Fade In ------------------------------------------------------------------ */
+.fade{
+    opacity: 0;
+    display: block;
+    color: #cfe1ff;
+}
+
+.fade-in:hover > .fade{
+    animation: fade .5s forwards var(--d) ;
+}
+@keyframes fade {
+    from{transform: translateY(20px);}
+    to{opacity: 1; transform: none;}
+}
+
+/* ------------------------------------------ Text Wipe ---------------------------------------------------------------- */
+.text-wipe:hover > .wipe{
+    --total: calc(var(--duration) + var(--delay));
+    overflow: hidden;
+    animation: reveal 1s var(--total) forwards;
+}
+
+.wipe{
+    color: transparent;
+    padding-left: 5px;
+    padding-right: 25px;
+    position: relative;
+    display: block;
+}
+
+.text-wipe:hover > .wipe:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: #14305a;
+    animation: rollIn var(--duration) var(--delay) forwards,
+    rollOut var(--duration) var(--total) forwards;
+}
+
+.wipe:not(:first-child)::after{
+    border-top: 1px solid #3772ca;
+}
+
+@keyframes reveal {
+    to {
+        color: #cfe1ff;
+    }
+}
+@keyframes rollIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+@keyframes rollOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(105%);
+    }
+}

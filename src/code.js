@@ -43,3 +43,29 @@ const callback = (entries, observer) => {
 let observer = new IntersectionObserver(callback);
 
 observer.observe(document.querySelector('header'));
+
+
+const change = (button) => {
+  let file = button.value;
+  let iframe = document.querySelector(".github-iframe");
+
+  switch(file){
+    case 'Horizontal Scroll': iframe.setAttribute('src', 'projects/horizontal-scroll/index.html');
+      break;
+    case 'Text Animations': iframe.setAttribute('src', 'projects/text-animations/index.html');
+      break;
+    case 'Details Animations': iframe.setAttribute('src', 'projects/animate-details/index.html');
+  }
+}
+
+const reveal = (button, project) => {
+  let p = document.querySelector('#'+project);
+
+  if(p.classList.contains('clamp')){
+    p.classList.remove('clamp');
+    button.value = 'read less';
+  }else{
+    p.classList.add('clamp');
+    button.value = 'read more';
+  }
+}

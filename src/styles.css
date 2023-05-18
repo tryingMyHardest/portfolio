@@ -242,6 +242,13 @@
     }
     p{
         font-family: jostLight;
+        margin-bottom: 0;
+    }
+    .clamp{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
 
     /* -------------------------------------- Nav Bar --------------------------------------- */
@@ -595,8 +602,9 @@
         flex-direction: row-reverse;
     }
     iframe{
+        height: 550px;
         width: 65%;
-        height: 500px;
+        margin: 0 10px;
         border-style: none;
         border-radius: 5px;
         border: 3px solid #9be69a;
@@ -610,72 +618,46 @@
         border-left: none;
         padding-right: 5px;
     }
-
-    /* ----------------------------------------- Project Code ------------------------------------------------------------- */
-
-    details{
-        background-color: aliceblue;
-        margin: auto;
-        transition: all .5s ease;
-
-    }
     
-    summary{
-        background-color: #52b350a0;
-        text-align: center;
-        list-style: none;
-        height: 25px;
-        transition: all .5s ease;
+    .buttons{
+        display: flex;
+        flex-direction: column;
     }
 
-    details summary::-webkit-details-marker { display:none; 
-    }
-
-    summary:hover{
-        background-color: #252525d0;
-        cursor: pointer;
-    }
-
-    details[open] summary{
-        box-shadow: 0 3px 5px #252525;
-        background-color: #252525;
-    }
-    details summary:after{
-        content: "View Code";
-        padding: 10px;
-        font-size: 20px;
-        transition: all .25s ease;
-    }
-
-    details[open] summary:after{
-        content: "Collapse Code";
-        color: #ffffff;
-    }
-
-    details[open]{
+    .read-more{
+        color: #404040;
+        background-color: transparent;
+        border-style: none;
+        font-family: jostTitle;
+        font-size: 1rem;
+        margin-bottom: 20px;
         width: 100%;
     }
-
-    details:not([open]){
-        width: 50%;
+    .read-more:hover{
+        cursor: pointer;
+        color: #9be69a;
     }
 
-
-    @keyframes growContent {
-        0% {
-        font-size: 0;
-        opacity: 0;
-        }
-        100% {
-        font-size: 1em;
-        opacity: 0;
-        }
+    .buttons > input[type='button']{
+        background: #9be69a;
+        color: #52b350;
+        border-style: none;
+        width: fit-content;
+        border-radius: 3px;
+        font-family: jostMed;
+        font-size: 1.05rem;
+        padding: 5px 12.5px;
+        letter-spacing: .5px;
     }
-    details[open] .content {
-        animation: growContent .5s ease;
+    .buttons > input[type="button"]:hover{
+        cursor: pointer;
+        color: #9be69a;
+        background: #52b350;
     }
 
-
+    .buttons > input[type="button"]:not(:first-child){
+        margin-top: 5px;
+    }
 
     /* ------------------------------------------- Footer -------------------------------------- */
     footer{

@@ -54,16 +54,19 @@
                         <div class="project-info">
                         <div class="project-header"><span class="number">01</span><h4>first webpage</h4></div>
                         <h5>october 2022</h5>
-                        <p>This webpage was my first project in the world of web development</p>
+                        <p id="first-page" class="clamp">This webpage was my first project in the world of web development. It was an the first exam in a web programming course that requried the implementation of a javascript calculator. Additionally, this page features a pure CSS card carousel.</p>
+                        <input class="read-more" type="button" value="read more" onclick="reveal(this,'first-page')"/>
                         </div>
-                        <iframe src="firstHTMLpage/firstHTML.html"></iframe>
+                        <iframe src="projects/firstHTML.html"></iframe>
                     </div>
                     <div class="project">
                         <div class="project-info">
                         <div class="project-header"><span class="number">02</span><h4>Code.A</h4></div>
                         <h5>february 2023</h5>
                         <h6><a href="https://tryingmyhardest.github.io/onlineCompiler/">full site</a></h6>
-                        <p>Allows people to code</p>
+                        <p id="editor" class="clamp">This site allows users to create, modify, &amp; compile code online in a multitude of programming languages. The project utilizes the Judge0 CE API to compile the code and Ace editor to display &amp; edit the code. In addition, the site allows users to upload files &amp; save the code they have written.</p>
+                        <input class="read-more" type="button" value="read more" onclick="reveal(this,'editor')"/>
+                        <p class="clamp">Try it out yourself!</p>
                         </div>
                         <iframe src="https://tryingmyhardest.github.io/onlineCompiler/"></iframe>
                     </div>
@@ -72,18 +75,27 @@
                         <div class="project-header"><span class="number">03</span><h4>project Sherlock</h4></div>
                         <h5>april 2023</h5>
                         <h6><a href="https://tryingmyhardest.github.io/projectSherlock/">full site</a></h6>
-                        <p>This website was my first complete website</p>
+                        <p id="sherlock1" class="clamp">Project Sherlock is a literary analysis of the first Sherlock Holmes novel, 'A Study in Scarlet', &amp; the first Sherlock Holmes short story collections, 'Adventures of Sherlock Holmes'.</p>
+                        <input class="read-more" type="button" value="read more" onclick="reveal(this,'sherlock1')"/>
+                        <p id="sherlock2" class="clamp">This project features a dynamic site layout &amp; multiple javascript features &#40;hiding navbars, animating menus, highlighting quotes, etc.&#41;.</p>
+                        <input class="read-more" type="button" value="read more" onclick="reveal(this,'sherlock2')"/>
                         </div>
                         <iframe src="https://tryingmyhardest.github.io/projectSherlock/"></iframe>     
                     </div>
                     <div class="project">
                         <div class="project-info">
-                            <div class="project-header"><span class="number">04</span><h4>playground</h4></div>
-                            <h5>may 2023</h5>
-                            <h6><a href="https://github.com/tryingMyHardest/playground">full repo</a></h6>
-                            <p>Test</p>
+                            <div class="project-header"><span class="number">04</span><h4>gitHub</h4></div>
+                            <h5>on going</h5>
+                            <h6><a href="https://github.com/tryingMyHardest">full profile</a></h6>
+                            <p id="git"class="clamp">My gitHub profile contains the repositories for Code.A &#40;onlineCompiler&#41; &amp; project Sherlock. Additionally, it contains a playground repo. this repo serves as a place to test multiple CSS or javascript methods. Check out a few templates using the following buttons.</p>
+                            <input class="read-more" type="button" value="read more" onclick="reveal(this,'git')"/>
+                            <div class="buttons">
+                                <input type="button" value="Horizontal Scroll" onclick="change(this)"/>
+                                <input type="button" value="Text Animations" onclick="change(this)"/>
+                                <input type="button" value="Details Animations" onclick="change(this)"/>
+                            </div>
                         </div>
-                        <iframe src="gridLayout.html"></iframe>
+                        <iframe class="github-iframe" src="projects/horizontal-scroll/index.html"></iframe>
                     </div>
                     <div class="project" style="align-items: center;">
                         <div class="project-info">
