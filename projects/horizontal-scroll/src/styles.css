@@ -1,0 +1,75 @@
+
+@font-face {
+    font-family: JSLight;
+    src: url(static/JosefinSans-Light.ttf);
+}
+
+@font-face {
+    font-family: JSBold;
+    src: url(static/JosefinSans-SemiBold.ttf);
+}
+
+html{
+    font-size: 25px;
+}
+
+body{
+   overflow:hidden;
+   background: rgba(37,37,37, .3);
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h1{
+    font-size: 2rem;
+    font-family: JSBold;
+}
+p{
+    font-size: 1rem;
+    font-family: JSLight;
+}
+
+::-webkit-scrollbar{width:2px;height:2px;}
+::-webkit-scrollbar-button{width:2px;height:2px;}
+
+div{
+    position:absolute;
+    display:block;
+    max-height: 100vw;
+    width: 100vh;
+
+    transform: rotate(-90deg) translateY(-100.9vh) translateX(.9vh);
+    transform-origin: right top;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+
+    scroll-snap-type: y mandatory;
+    background:rgb(21,76,121, .7);
+}
+
+section{
+    height: 600px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0px 20px 25px #252525;
+
+    transform: rotate(90deg);
+    overflow-x: hidden;
+
+    scroll-snap-align: center;
+    
+}
+
+section:nth-child(odd){
+    background: rgb(238,238,228);
+    color: #252525;
+}
+section:nth-child(even){
+    background: rgb(171,219,227);
+    color: #252525;
+}
