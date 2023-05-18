@@ -24,11 +24,15 @@ h1{
 }
 p{
     font-size: 1rem;
+    padding: 12.5px;
+    text-align: justify;
+    text-justify: inter-word;
     font-family: JSLight;
 }
 
-::-webkit-scrollbar{width:2px;height:2px;}
-::-webkit-scrollbar-button{width:2px;height:2px;}
+::-webkit-scrollbar{height:15px;}
+::-webkit-scrollbar-track{background: rgb(238,238,228);}
+::-webkit-scrollbar-thumb{background: rgb(171,219,227);}
 
 div{
     position:absolute;
