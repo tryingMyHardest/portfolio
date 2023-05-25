@@ -58,14 +58,16 @@ const change = (button) => {
   }
 }
 
-const reveal = (button, project) => {
-  let p = document.querySelector('#'+project);
+const toggle = (paragraph) => {
+  paragraph.classList.toggle("clamp");
+}
 
-  if(p.classList.contains('clamp')){
-    p.classList.remove('clamp');
-    button.value = 'read less';
-  }else{
-    p.classList.add('clamp');
-    button.value = 'read more';
-  }
+var list = document.getElementsByClassName("code-list");
+
+
+for(let i = 0; i < list.length; i++){
+  console.log(list[i]);
+  setTimeout(function() {
+    list[i].classList.add("color-change");
+  }, 250*i);
 }
