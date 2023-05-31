@@ -243,12 +243,13 @@
     p{
         font-family: jostLight;
         margin-bottom: 0;
-        border-left: solid 5px #404040;
+        border-left: solid 2.5px #404040;
         padding-left: 5px;
         transition: all .5s ease;
     }
     p:hover{
         cursor: pointer;
+        border-left: solid 2.5px #e3f2ff;
     }
     .clamp{
         overflow: hidden;
@@ -852,7 +853,7 @@
     }
     .icon:hover{
         cursor: pointer;
-        transform: scale(1.05);
+        transform: scale(1.1);
     }
 
 }
