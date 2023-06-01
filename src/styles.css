@@ -29,11 +29,12 @@
     
     html{
         scroll-behavior: smooth;
-        font-size: 20px;
+        font-size: 35px;
     }
     body{
         background:#f9ff45;
         margin: 0;
+        width: 100vw;
         overflow-x: hidden;
     }
     ::-webkit-scrollbar {
