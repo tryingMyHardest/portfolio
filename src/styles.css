@@ -26,16 +26,19 @@
         font-family: jostMed;
         src: url(Jost/fonts/Jost-500-Medium.ttf);
     }
-    
+    @font-face {
+        font-family: jostSemi;
+        src: url(Jost/fonts/Jost-600-Semi.ttf);
+    }
     html{
         scroll-behavior: smooth;
         font-size: 20px;
         text-size-adjust: auto;
+        overflow-x: hidden;
     }
     body{
         background:#f9ff45;
         margin: 0;
-        width: 100vw;
         overflow-x: hidden;
     }
     ::-webkit-scrollbar {
@@ -54,7 +57,7 @@
     }
     h2{
         font-size: 3rem;
-        font-family: jostLight;
+        font-family: jostSemi;
     }
     h3{
         font-size: 5rem;
@@ -65,7 +68,7 @@
     }
     h4{
         font-size: 2.5rem;
-        font-family: jostLight;
+        font-family: jostSemi;
         color: #e3f2ff;
         margin-top: 0;
         padding-left: 10px;
@@ -75,7 +78,7 @@
     }
     h5{
         font-size: 2rem;
-        font-family: jostHair;
+        font-family: jostMed;
         color: #9be69a;
         margin-top: 10px;
         margin-bottom: 0px;
@@ -480,6 +483,9 @@
     .project{
         display: flex;
         flex-direction: column;
+    }
+
+    .project:not(:first-child){
         margin-top: 75px;
     }
 
@@ -548,6 +554,7 @@
         padding: 9%;
         position: relative; 
         margin: 0px auto;
+        margin-bottom: 75px;
     }
     .gear-rotate{
         width: 5em;
@@ -681,6 +688,7 @@
         background: #44519f;
         color: #e3f2ff;
         width: 100%;
+        z-index: 0;
         transform-style: preserve-3d;
     }
     footer::before{
