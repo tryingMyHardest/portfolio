@@ -455,6 +455,7 @@
         box-sizing: border-box;
         transform: skewY(5deg);
         transform-style: preserve-3d;
+        transform-origin: center;
         
     }
     .work-container{
@@ -690,6 +691,7 @@
         width: 100%;
         z-index: 0;
         transform-style: preserve-3d;
+        transform-origin: center;
     }
     footer::before{
         content: "";
