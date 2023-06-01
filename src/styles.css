@@ -702,6 +702,7 @@
         height: 185px;
         background-color: #44519f;
         transform: skewY(-5deg) translateZ(-1px);
+        transform-origin: center;
     }
 
     .footer-container{
