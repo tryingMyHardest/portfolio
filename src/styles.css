@@ -29,7 +29,8 @@
     
     html{
         scroll-behavior: smooth;
-        font-size: 35px;
+        font-size: 20px;
+        text-size-adjust: auto;
     }
     body{
         background:#f9ff45;
