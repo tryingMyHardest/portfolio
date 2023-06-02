@@ -58,10 +58,6 @@ const change = (button) => {
   }
 }
 
-const toggle = (paragraph) => {
-  paragraph.classList.toggle("clamp");
-}
-
 var list = document.getElementsByClassName("code-list");
 
 
@@ -70,4 +66,12 @@ for(let i = 0; i < list.length; i++){
   setTimeout(function() {
     list[i].classList.add("color-change");
   }, 250*i);
+}
+
+const menu = () => {
+  let menu = document.querySelector(".menu");
+  let burger = document.querySelector(".burger");
+
+  menu.classList.toggle("menu-display");
+  burger.classList.toggle("open");
 }

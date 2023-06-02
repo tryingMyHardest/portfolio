@@ -42,7 +42,7 @@ span{
     color: #cfe1ff;
 }
 
-.fade-in:hover > .fade{
+.fade-text{
     animation: fade .5s forwards var(--d) ;
 }
 @keyframes fade {
@@ -51,7 +51,7 @@ span{
 }
 
 /* ------------------------------------------ Text Wipe ---------------------------------------------------------------- */
-.text-wipe:hover > .wipe{
+.wipe-text{
     --total: calc(var(--duration) + var(--delay));
     overflow: hidden;
     animation: reveal 1s var(--total) forwards;
@@ -65,7 +65,7 @@ span{
     display: block;
 }
 
-.text-wipe:hover > .wipe:after{
+.wipe-text:after{
     content: "";
     position: absolute;
     top: 0;
@@ -79,7 +79,7 @@ span{
     rollOut var(--duration) var(--total) forwards;
 }
 
-.wipe:not(:first-child)::after{
+.wipe-text:not(:first-child)::after{
     border-top: 1px solid #3772ca;
 }
 

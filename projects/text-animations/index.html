@@ -35,4 +35,15 @@
         </div>
         </article>        
     </body>
+    <script>
+        var fade = document.getElementsByClassName("fade");
+        var wipe = document.getElementsByClassName("wipe");
+
+        setInterval(function(){
+            for(let i = 0; i < fade.length; i++){
+                fade[i].classList.toggle('fade-text');
+                wipe[i].classList.toggle('wipe-text');
+            }
+        }, 4000);
+    </script>
 </html>
