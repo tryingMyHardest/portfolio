@@ -32,7 +32,7 @@
     }
     html{
         scroll-behavior: smooth;
-        font-size: 20px;
+        font-size: 15px;
         text-size-adjust: auto;
         overflow-x: hidden;
     }
@@ -57,18 +57,18 @@
     }
     h2{
         font-size: 3rem;
-        font-family: jostSemi;
+        font-family: jostLight;
     }
     h3{
         font-size: 5rem;
         font-family: jostTitle;
         letter-spacing: 5px;
         color:#e3f2ff;
-        margin-bottom: 50px;
+        margin-bottom: 25px;
     }
     h4{
         font-size: 2.5rem;
-        font-family: jostSemi;
+        font-family: jostLight;
         color: #e3f2ff;
         margin-top: 0;
         padding-left: 10px;
@@ -78,7 +78,7 @@
     }
     h5{
         font-size: 2rem;
-        font-family: jostMed;
+        font-family: jostHair;
         color: #9be69a;
         margin-top: 10px;
         margin-bottom: 0px;
@@ -122,7 +122,18 @@
         height: fit-content;
         transition: all .5s ease;
         z-index: 10;
-        background: transparent;
+        background: #f9ff45;
+    }
+    nav::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        height: 50px;
+        background-color: #f9ff45;
+        transform: skewY(-2deg);
+        z-index: -1;
     }
 
     .title{
@@ -131,9 +142,8 @@
         margin-top: 5px;
         margin-left: 25px;
         opacity: 0;
-        color: #e3f2ff;
+        color: #ccd314;
         transition: all 1s ease-in-out;
-        backdrop-filter: blur(25px);
         padding: .5rem;
         border-radius: 10px;
     }
@@ -143,8 +153,6 @@
     }
 
     .burger{
-        background: transparent;
-        backdrop-filter: blur(25px);
         border-radius: 5px;
         display: flex;
         flex-direction: column;
@@ -166,7 +174,7 @@
     
     .line{
         height: 2px;
-        background-color: #e3f2ff;
+        background-color: #ccd314;
         width: 75%;
         margin: 2.5px auto 2.5px auto ;
         border-radius: calc(15px / 2);
@@ -224,12 +232,13 @@
     /* ----------------------------------------- Intro ------------------------------------------------- */
     header{
         position: relative;
-        padding-left: 50px;
+        padding-left: 10px;
         padding-top: 10vh;
         height: 100vh;
         margin: 0;
         background: #44519f;
         box-sizing: border-box;
+        z-index: 1;
     }
 
     header::after{
@@ -241,7 +250,7 @@
         height: 165px;
         background-color: #44519f;
         transform: skewY(-5deg);
-        z-index: 0;
+        z-index: -1;
     }
 
     .intro .textLine{
@@ -250,7 +259,6 @@
     
     .intro{
         width: fit-content;
-        padding: 0 50px;
         color: transparent;
         z-index: 10;
     }
@@ -318,12 +326,13 @@
 
     .circles{
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        z-index: 1;
+        bottom: 0;
+        right: 0;
+        width: 100vh;
+        height: 100vw;
+        z-index: 2;
+        transform-origin: bottom right;
+        transform: rotate(90deg) translateY(100vw);
     }
     
     .circles li{
@@ -339,7 +348,7 @@
         background: var(--b);
         aspect-ratio: 1/1;
         width: var(--width);
-        top: calc(100vh - var(--width) - 5vh);
+        top: calc(100vw * var(--x));
         animation: float var(--duration) linear  infinite var(--d);
     }
 
@@ -347,7 +356,7 @@
         background: var(--b);
         aspect-ratio: 1/1;
         width: var(--width);
-        top: calc((var(--width) + 5vh));
+        top: calc(100vw * var(--x));
         animation: float var(--duration) linear infinite var(--d);
     }
 
@@ -357,7 +366,7 @@
             transform: translateX(0);
         }
         100%{
-            transform: translateX(110vw);
+            transform: translateX(110vh);
             opacity: 1;
         }
         
@@ -370,9 +379,10 @@
         background: #ba4c4c;
         margin-top: 65px;
         width: 100%;
-        padding: 1px 50px 200px 50px;
+        padding: 0 25px;
         box-sizing: border-box;
         transform: skewY(-5deg);
+        z-index: 1;
     }
     .section-about::before{
         content: "";
@@ -384,6 +394,7 @@
         background: #ba4c4c;
         z-index: 10;
         transform: skewY(5deg);
+        z-index: -1;
     }
     .section-about::after{
         content: "";
@@ -393,13 +404,12 @@
         height: 200px;
         bottom: -105px;
         background: #ba4c4c;
-        z-index: 10;
+        z-index: -1;
         transform: skewY(10deg);
     }
 
     .about-container{
         transform: skewY(5deg);
-
     }
 
     .about-info{
@@ -425,7 +435,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        margin: 15px;
+        margin: 15px 0px;
         
     }
     .code-list{
@@ -450,16 +460,15 @@
     .section-work{
         position: relative;
         background: #52b350;
-        margin-top: 0px;
-        padding: 0px 50px 50px 50px;
+      
         box-sizing: border-box;
         transform: skewY(5deg);
-        transform-style: preserve-3d;
-        transform-origin: center;
-        
+        z-index: 1;
     }
     .work-container{
         transform: skewY(-5deg);
+        width: 90%;
+        margin: auto;
     }
     .section-work::before{
         content: "";
@@ -469,7 +478,8 @@
         height: 160px;
         bottom: -70px;
         background: #52b350;
-        transform: skewY(-5deg) translateZ(-1px);
+        transform: skewY(-5deg);
+        z-index: -1;
     }
     .section-work::after{
         content: "";
@@ -479,7 +489,8 @@
         height: 160px;
         bottom: -140px;
         background: #52b350;
-        transform: skewY(-10deg) translateZ(-1px);
+        transform: skewY(-10deg);
+        z-index: -1;
     }
     .project{
         display: flex;
@@ -501,15 +512,15 @@
         display: flex;
         align-items: center;
     }
+
     iframe{
         height: 550px;
         width: 100%;
         margin-top: 25px;
         border-style: none;
         border-radius: 5px;
-        border: 3px solid #9be69a;
-        padding: 2.5px;
     }
+    
     .number{
         font-size: 2.5rem;
         color: #404040;
@@ -689,9 +700,7 @@
         background: #44519f;
         color: #e3f2ff;
         width: 100%;
-        z-index: 0;
-        transform-style: preserve-3d;
-        transform-origin: center;
+        z-index: 1;
     }
     footer::before{
         content: "";
@@ -700,9 +709,9 @@
         right: 0;
         top: -100px;
         height: 185px;
+        z-index: -1;
         background-color: #44519f;
-        transform: skewY(-5deg) translateZ(-1px);
-        transform-origin: center;
+        transform: skewY(-5deg);
     }
 
     .footer-container{
@@ -860,6 +869,7 @@
         color: #e3f2ff;
         transition: all 1s ease-in-out;
         backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         padding: .5rem;
         border-radius: 10px;
     }
@@ -878,6 +888,7 @@
         margin-right: 50px;
         width: 30%;
         backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         padding: .5rem;
         border-radius: 10px;
     }
@@ -955,6 +966,7 @@
         margin: 0;
         background: #44519f;
         box-sizing: border-box;
+        z-index: 1;
     }
 
     header::after{
@@ -966,7 +978,7 @@
         height: 165px;
         background-color: #44519f;
         transform: skewY(-5deg);
-        z-index: 0;
+        z-index: -1;
     }
 
     .intro .textLine{
@@ -1043,12 +1055,13 @@
 
     .circles{
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        z-index: 1;
+        bottom: 0;
+        right: 0;
+        width: 100vh;
+        height: 100vw;
+        z-index: 2;
+        transform-origin: bottom right;
+        transform: rotate(90deg) translateY(100vw);
     }
     
     .circles li{
@@ -1064,7 +1077,7 @@
         background: var(--b);
         aspect-ratio: 1/1;
         width: var(--width);
-        top: calc(100vh - var(--width) - 5vh);
+        top: calc(100vw * var(--x));
         animation: float var(--duration) linear  infinite var(--d);
     }
 
@@ -1072,7 +1085,7 @@
         background: var(--b);
         aspect-ratio: 1/1;
         width: var(--width);
-        top: calc((var(--width) + 5vh));
+        top: calc(100vw * var(--x));
         animation: float var(--duration) linear infinite var(--d);
     }
 
@@ -1098,6 +1111,7 @@
         padding: 1px 50px 200px 50px;
         box-sizing: border-box;
         transform: skewY(-5deg);
+        z-index: 1;
     }
     .section-about::before{
         content: "";
@@ -1107,7 +1121,7 @@
         height: 180px;
         bottom: 0px;
         background: #ba4c4c;
-        z-index: 10;
+        z-index: -1;
         transform: skewY(5deg);
     }
     .section-about::after{
@@ -1118,7 +1132,7 @@
         height: 200px;
         bottom: -105px;
         background: #ba4c4c;
-        z-index: 10;
+        z-index: -1;
         transform: skewY(10deg);
     }
 
@@ -1177,8 +1191,7 @@
         padding: 0px 50px 50px 50px;
         box-sizing: border-box;
         transform: skewY(5deg);
-        transform-style: preserve-3d;
-        
+        z-index: 1;
     }
     .work-container{
         transform: skewY(-5deg);
@@ -1191,7 +1204,8 @@
         height: 160px;
         bottom: -70px;
         background: #52b350;
-        transform: skewY(-5deg) translateZ(-1px);
+        transform: skewY(-5deg);
+        z-index: -1;
     }
     .section-work::after{
         content: "";
@@ -1201,7 +1215,8 @@
         height: 160px;
         bottom: -140px;
         background: #52b350;
-        transform: skewY(-10deg) translateZ(-1px);
+        transform: skewY(-10deg);
+        z-index: -1;
     }
     .project{
         display: flex;
@@ -1232,8 +1247,6 @@
         margin: 0 10px;
         border-style: none;
         border-radius: 5px;
-        border: 3px solid #9be69a;
-        padding: 2.5px;
     }
     .number{
         font-size: 2.5rem;
@@ -1412,7 +1425,7 @@
         background: #44519f;
         color: #e3f2ff;
         width: 100%;
-        transform-style: preserve-3d;
+        z-index: 1;
     }
     footer::before{
         content: "";
@@ -1422,7 +1435,8 @@
         top: -100px;
         height: 185px;
         background-color: #44519f;
-        transform: skewY(-5deg) translateZ(-1px);
+        transform: skewY(-5deg);
+        z-index: -1;
     }
 
     .footer-container{
