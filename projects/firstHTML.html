@@ -15,6 +15,7 @@
 		margin: 0;
 		background-color: #F0F0F0;
 		font-weight: 200;
+		overflow-x: hidden;
 	}
 	h3{
 		font-size: 25px;
@@ -214,10 +215,14 @@
 		right: 0;
 		color: #FFFFFF;
 		border-radius: 5px;
-		display: block;
+		display: inline-block;
 		transition: transform 400ms ease;
 		background-color: #9E9283;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		box-sizing: border-box;
 	}
+
 	#slider h2{
 		font-size: 22px;
 		text-align: center;
@@ -1057,7 +1062,7 @@ document.addEventListener('click', function(event) {
 		<label for="kayak" id="kayakInfo">
 			<h2>Kayak Info</h2>
 			<div class="slideInfo">
-				<p>Difficulty level: Beginner<br>Anyone can easily enjoy a day on the lake with little to no previous experience!<br>Kayak Pricing:</p>
+				<p>Difficulty level: Beginner<br>Kayak Pricing:</p>
 				<ul>
 					<li>One (1) Person - $10.00 per hour</li>
 					<li>Two (2) Person - $15.00 per hour</li>
@@ -1067,7 +1072,7 @@ document.addEventListener('click', function(event) {
 		<label for="canoe" id="canoeInfo">
 			<h2>Canoe Info</h2>
 			<div class="slideInfo">
-				<p>Difficuluty level: Intermediate<br>There is a bit of a learning curve, but with a little practice, anyone can become a pro!<br>Canoe Pricing:</p>
+				<p>Difficuluty level: Intermediate<br>Canoe Pricing:</p>
 				<ul>
 					<li>Standard - $12.50 per hour</li>
 				</ul>
@@ -1076,7 +1081,7 @@ document.addEventListener('click', function(event) {
 		<label for="rowBoat" id="rowBoatInfo">
 			<h2>Row Boat Info</h2>
 			<div class="slideInfo">
-				<p>Difficulty level: Beginner<br>Anyone can easily enjoy a day on the lake with little to no previous experience!<br>Row Boat Pricing:</p>
+				<p>Difficulty level: Beginner<br>Row Boat Pricing:</p>
 				<ul>
 					<li>Standard - $12.50 per hour</li>
 				</ul>
@@ -1085,7 +1090,7 @@ document.addEventListener('click', function(event) {
 		<label for="paddleBoard" id="paddleBoardInfo">
 			<h2>Paddle Board Info</h2>
 			<div class="slideInfo">
-				<p>Difficulty level: Intermediate<br>There is a bit of a learning curve, but with a little practice, anyone can become a pro!<br>Paddle Board Pricing:</p>
+				<p>Difficulty level: Intermediate<br>Paddle Board Pricing:</p>
 				<ul>
 					<li>Standard - $8.00 per hour</li>
 				</ul>
@@ -1094,7 +1099,7 @@ document.addEventListener('click', function(event) {
 		<label for="sailBoat" id="sailBoatInfo">
 			<h2>Sailboat Info</h2>
 			<div class="slideInfo">
-				<p>Difficulty level: Expert<br>This boat requires expierence and training to operate. Only those that have previously rented with us are allowed to operate.<br>Sailboat Pricing:</p>
+				<p>Difficulty level: Expert<br>Sailboat Pricing:</p>
 				<ul>
 					<li>Small Sailboat (4) - $25.00 per hour</li>
 					<li>Large Sailboat (8) - $50.00 per hour</li>
