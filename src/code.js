@@ -62,7 +62,6 @@ var list = document.getElementsByClassName("code-list");
 
 
 for(let i = 0; i < list.length; i++){
-  console.log(list[i]);
   setTimeout(function() {
     list[i].classList.add("color-change");
   }, 250*i);
@@ -74,4 +73,21 @@ const menu = () => {
 
   menu.classList.toggle("menu-display");
   burger.classList.toggle("open");
+}
+
+
+const expose = (element) => {
+  let screen = element.querySelector(".screen");
+
+  let sites = document.getElementsByClassName("screen");
+
+  for(let i = 0; i < sites.length; i++){
+    sites[i].classList.remove("hide");
+  }
+
+  screen.classList.toggle("hide");
+}
+
+const toggle = (p) => {
+  p.classList.toggle("clamp");
 }

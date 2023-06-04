@@ -472,7 +472,6 @@
     .languages{
         border-top: #404040 5px solid;
         padding-top: 20px;
-        text-align: right;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -487,7 +486,7 @@
         padding: 1px;
         line-height: 3.25rem;
         transition:  .5s ease;
-        padding-right: 20px;
+        padding: 0 10px;
     }
     .color-change{
         animation: color 15s ease infinite;
@@ -547,13 +546,48 @@
         align-items: center;
     }
 
-    iframe{
-        height: 550px;
+    .container{
+        position: relative;
+        height: fit-content;
         width: 100%;
         margin-top: 25px;
+    }
+    iframe{
+        position: relative;
+        z-index: 3;
+        height: 550px;
+        width: 100%;
         border-style: none;
         border-radius: 5px;
     }
+    .screen{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: -1px;
+        z-index: 4;
+        height: 550px;
+        width: 101%;
+    }
+    .screen:hover, .screen:hover .sign{
+        cursor: pointer;
+        color: #9be69a;
+    }
+    .sign{
+        font-family: jostTitle;
+        text-align: center;
+        font-size: 3rem;
+        background: #52b350;
+        color: #e3f2ff;
+        width: 100%;
+        padding: 5px 0;
+    }
+    .hide{
+        display: none;
+    }
+    
     
     .number{
         font-size: 2.5rem;
@@ -1287,10 +1321,20 @@
     }
     iframe{
         height: 550px;
-        width: 65%;
-        margin: 0 10px;
+        width: 100%;
         border-style: none;
         border-radius: 5px;
+    }
+    
+    .github-iframe{
+        width: 65%;
+    }
+    .screen{
+        display: none;
+    }
+    .container{
+        height: 550px;
+        width: 65%;
     }
     .number{
         font-size: 2.5rem;
