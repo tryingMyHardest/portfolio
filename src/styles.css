@@ -215,7 +215,7 @@
         font-family: jostLight;
         font-size: 2rem;
         text-align: center;
-        color: #ccd314;
+        color: #888c21;
         transition: color .5s ease;
         z-index: 11;
         width: 100%;
@@ -976,7 +976,7 @@
         padding-left: 20px;
         padding-right: 20px;
         font-size: 1rem;
-        color: #ccd314;
+        color: #888c21;
         transition: color .5s ease;
         z-index: 11;
     }
